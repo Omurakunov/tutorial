@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+:root {
+  --card-dimension: 40em;
+  --active-color: rgba(254, 121, 61, 1);
+  --main-color: #fff;
+  --first-color: black;
+  --second-color: #315EFF;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +16,9 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--main-color);
+  padding-top: 8em;
+  overflow-x: hidden;
 }
 
 .home {
@@ -19,16 +29,18 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
   width: 100%;
   height: auto;
-  padding-top: 500px;
+  margin-top: 2em;
 }
 
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -36,14 +48,21 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 15px 0 30px;
-  height: 6rem;
+  height: 6em;
+  width: 100%;
+  background-color: var(--main-color);
+  z-index: 3;
   -webkit-box-shadow: -5px 5px 10px rgba(230, 230, 230, 0.2), 5px -5px 10px rgba(230, 230, 230, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(230, 230, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
           box-shadow: -5px 5px 10px rgba(230, 230, 230, 0.2), 5px -5px 10px rgba(230, 230, 230, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(230, 230, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
   border-radius: 0px 0px 26px 26px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--first-color);
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
 }
 
 .navbar ul {
@@ -65,15 +84,16 @@ body {
   list-style: none;
 }
 
-.navbar h1 {
-  -webkit-box-flex: 3;
-      -ms-flex-positive: 3;
-          flex-grow: 3;
-}
-
 .icon {
   width: 28px;
   height: 28px;
+  -webkit-transition: 0.150s ease-in;
+  transition: 0.150s ease-in;
+  color: black;
+}
+
+.icon:hover {
+  color: var(--second-color);
 }
 
 .filter-bar {
@@ -94,36 +114,45 @@ body {
           justify-content: space-evenly;
 }
 
-.filter-bar input {
-  width: 30rem;
-  height: 35px;
-  border-radius: 12px;
-  -webkit-appearance: none;
-  outline: none;
-  border: none;
-  background-color: rgba(229, 229, 229, 0.3);
-  padding-left: 15px;
-  font-size: medium;
-}
-
 .categories {
   width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  padding: 0px 0 0 20px;
+  overflow-x: visible;
 }
 
-.categories button {
-  min-width: 80px;
-  height: 30px;
-  border-radius: 10px;
+.categories .category-button {
+  min-width: 100px;
+  height: 40px;
+  border-radius: 10rem;
   border: none;
-  background-color: #fff;
+  background-color: var(--main-color);
   -webkit-box-shadow: -5px 5px 10px rgba(225, 225, 225, 0.2), 5px -5px 10px rgba(225, 225, 225, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(225, 225, 225, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(225, 225, 225, 0.5);
           box-shadow: -5px 5px 10px rgba(225, 225, 225, 0.2), 5px -5px 10px rgba(225, 225, 225, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(225, 225, 225, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(225, 225, 225, 0.5);
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+}
+
+.categories .category-button:hover {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.categories .category-button.active {
+  min-width: 100px;
+  height: 40px;
+  border-radius: 10rem;
+  border: none;
+  background-color: var(--active-color);
+  -webkit-box-shadow: -5px 5px 10px rgba(229, 109, 55, 0.2), 5px -5px 10px rgba(229, 109, 55, 0.2), 5px 5px 13px rgba(229, 109, 55, 0.9), inset 1px 1px 2px rgba(255, 133, 67, 0.3), inset -1px -1px 2px rgba(229, 109, 55, 0.5);
+          box-shadow: -5px 5px 10px rgba(229, 109, 55, 0.2), 5px -5px 10px rgba(229, 109, 55, 0.2), 5px 5px 13px rgba(229, 109, 55, 0.9), inset 1px 1px 2px rgba(255, 133, 67, 0.3), inset -1px -1px 2px rgba(229, 109, 55, 0.5);
 }
 
 .search-bar {
@@ -136,13 +165,25 @@ body {
   position: relative;
 }
 
+.search-bar input {
+  width: 30rem;
+  height: 40px;
+  border-radius: 25px;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  background-color: rgba(229, 229, 229, 0.3);
+  padding-left: 15px;
+  font-size: medium;
+}
+
 .search-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #315EFF;
-  width: 35px;
-  height: 35px;
+  background-color: var(--second-color);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -154,7 +195,7 @@ body {
   right: 0;
 }
 
-.surveys {
+.cards-container {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -167,9 +208,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 40px;
+  margin-top: 50px;
 }
 
-.surveys img {
+.cards-container img {
   width: 40px;
   height: 40px;
 }
@@ -178,13 +221,315 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 35rem;
-  height: auto;
+  width: 40em;
+  height: 100px;
+  border-radius: 25px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: -5px -7px 20px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: -5px -7px 20px 1px rgba(0, 0, 0, 0.1);
+  gap: 15px;
+  padding: 0 30px 0 10px;
+  -webkit-transition: 0.250s ease-out;
+  transition: 0.250s ease-out;
+}
+
+.survey-card .survey-card-img {
+  width: 75px;
+  height: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.survey-card .survey-card-img img {
+  width: 300px;
+  height: 300px;
+}
+
+.survey-card button {
+  background-color: var(--main-color);
+  border: none;
+}
+
+.survey-card .survey-card-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+}
+
+.survey-card .survey-card-info a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--active-color);
+  margin-top: 12px;
+}
+
+.survey-card .save-button {
+  width: 38px;
+  height: 38px;
+}
+
+.survey-card .save-button-active {
+  width: 38px;
+  height: 38px;
+  color: black;
+}
+
+.survey-card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.page-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2em;
+}
+
+.page-container h1 {
+  font-weight: 600;
+  margin-bottom: 1.5em;
+}
+
+.profile-img-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px -1px 11px #C2D1E5;
+          box-shadow: 0px -1px 11px #C2D1E5;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-img-container .profile-img {
+  width: 120px;
+  height: 120px;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info h2 {
+  font-size: 22px;
+}
+
+.profile-info p {
+  font-size: 16px;
+}
+
+.profile-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 40em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-header .settings {
+  position: absolute;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  color: #315EFF;
+}
+
+.profile-header .settings:hover {
+  -webkit-animation: settingsHover 3s infinite linear;
+          animation: settingsHover 3s infinite linear;
+  color: var(--active-color);
+}
+
+@-webkit-keyframes settingsHover {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+
+@keyframes settingsHover {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+
+.user-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 45em;
+  height: 120px;
+  border-radius: 25px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  padding: 0 30px 0 10px;
+  background-color: var(--second-color);
+  color: var(--main-color);
+  margin-bottom: 6em;
+}
+
+.user-card img {
+  height: 90px;
+  width: auto;
+}
+
+.user-card .card-info {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.user-card button {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: var(--active-color);
+  border: none;
+  color: var(--main-color);
+  font-weight: 400;
+}
+
+.settings-header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40em;
+}
+
+.settings-header a {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  color: var(--first-color);
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.settings-header a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.user-settings form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 3em;
+  gap: 2.7em;
+}
+
+.user-settings form label {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.user-settings form input {
+  border: none;
+  outline: none;
+  font-size: medium;
+}
+
+.user-settings form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+
+.user-settings button {
+  background-color: #fff;
+  border: none;
+  margin-top: 4em;
 }
 /*# sourceMappingURL=index.css.map */

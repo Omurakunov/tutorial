@@ -1,6 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart, faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom'
 function Navbar(){
     library.add(
         faHeart,
@@ -9,11 +10,11 @@ function Navbar(){
     )
     return(
         <div className="navbar">
-            <h1>Survey App</h1>
+            <Link to={'/'}><h1>Survey App</h1></Link>
             <ul>
-                <li><FontAwesomeIcon icon={faHeart} className="icon"/></li>
-                <li><FontAwesomeIcon icon={faHouse} className="icon"/></li>
-                <li><FontAwesomeIcon icon={faUser} className="icon"/></li>
+                <li><Link to={'/'}><FontAwesomeIcon icon={faHouse} className="icon"/></Link></li>
+                <li><Link to={'/saved'}><FontAwesomeIcon icon={faHeart} className="icon"/></Link></li>
+                <li><Link to={'/profile'}><FontAwesomeIcon icon={faUser} className="icon"/></Link></li>
             </ul>
         </div>
     )
