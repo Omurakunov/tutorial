@@ -1,5 +1,5 @@
 import Navbar from "./navbar"
-import {  faUser, faHeart, faGear } from '@fortawesome/free-solid-svg-icons';
+import {  faUser, faHeart, faGear, faChildren, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
@@ -18,10 +18,11 @@ function Profile() {
       mySurveys: new Array(5).fill('').map((_, i)=>(
           {
             id: i,
-            img:'https://image.shutterstock.com/image-vector/vector-illustration-green-chalkboard-math-600w-1440952739.jpg',
-            name:`Math for HighSchool#${i}`,
-            questions: 25,
-            done: 0
+            img:"https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
+            name:`Phyton ${i}`,
+            views:282,
+            likes:151,
+            lessons:29
           }
         ))
       
@@ -45,23 +46,35 @@ function Profile() {
         </div>
         <div className="user-surveys">
           <h2>
-            Your survey:
+            Пройденные курсы:
           </h2>
           <div className="cards-container">
-            {
-              user[0].mySurveys.map((mySurvey, i)=>(
-                  <div className="survey-card" key={i}>
-                    <div className="survey-card-img">
-            <img src={mySurvey.img} alt="Oops"/>
-          </div>
-                  <div className='survey-card-info'>
-                    <p>{mySurvey.name}</p>
-                    <p>{mySurvey.done}/{mySurvey.questions} Questions</p>
-                  </div>
+          {
+            user[0].mySurveys.map((course, i)=>(
+              <div className='course-card' key={i}>
+                <div className='course-card-img'>
+                  <img src={course.img} alt="Oops"/>
                 </div>
-              
-              ))
-            }
+                
+                <div className='course-card-info'>
+                  <h3>{course.name}</h3>
+                  <div className='course-card-info-rating'>
+                    <div>
+                      <FontAwesomeIcon icon={faChildren}></FontAwesomeIcon>
+                      <p>{`${course.views} просмотров`}</p>
+                    </div>
+                    <div>
+                      <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
+                      <p>{`${course.likes} лайокв`}</p>
+                    </div>
+                  </div>
+                  <p>{`${course.lessons} уроков`}</p>
+                </div>
+                
+                
+              </div>
+            ))
+          }
           </div>
         </div>
       </div>

@@ -1,55 +1,76 @@
 import Navbar from './navbar'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faHeart, faThumbsUp, faChildren } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect, useMemo } from 'react' 
 import { Link } from 'react-router-dom';
-//Function of searchbar
+//FILTER FUNCTION
 const handleFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
 }
-//Toggle function
+//TOGGLE FUNCTION
 const handleToggle = (data, element) =>{
   return data === +element.target.id ? null : +element.target.id 
 }
 
 function Home() {
-  //Awesomefonts
+
+  //AWESOME FONTS
   library.add(
     faMagnifyingGlass,
-    faHeart
+    faHeart,
+    faThumbsUp,
+    faChildren
   )
+
   const [categories, setCategories] = useState(new Array(10).fill('').map((_, i)=>
   (
     {id:i, 
-    name:'food'}
-    )))
+    name:'Programming'}
+  )))
 
-  const [surveys, setSurveys] = useState(new Array(20).fill('').map((_, i)=>(
+
+  const [courses, setCourses] = useState(new Array(20).fill('').map((_, i)=>(
     {
       id: i,
-      img:"https://image.shutterstock.com/image-vector/vector-illustration-green-chalkboard-math-600w-1440952739.jpg",
-      name:`Math for HighSchool#${i}`,
-      questions: 25,
-      done: 0,
-      author: 'Adam Sendler'
+      img:"https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
+      name:`Phyton ${i}`,
+      views:282,
+      likes:151,
+      lessons:29
     }
   )))
+  
+  
   const [categoryId, setCategoryId] = useState(null)
   const [savedId, setSavedId] = useState(null)
   const [searchFilter, setSearchFilter] = useState("")
-  //Function of category button
+
+
+  //HANDLE CATEGORY BUTTON
   const handleCategoryButton = (e) =>{
     setCategoryId(handleToggle(categoryId, e))
   }
-  const handleSaveButton = (e) =>{
-    setSavedId(handleToggle(savedId, e))
-  }
-  //Searchbar function
-  const filteredReuslts = useMemo(()=>{
-    return handleFilter(surveys, searchFilter, 'name')
-  },[surveys, searchFilter])
+  //SEARCHBAR
+  const filteredResults = useMemo(()=>{
+    return handleFilter(courses, searchFilter, 'name')
+  },[courses, searchFilter])
   console.log(savedId)
+
+
+  // useEffect(()=>{
+  //   axios
+  //   .get('http://139.180.146.234:8000/course/')
+  //   .then(res=>{setCourses(res.data)})
+  // },[])
+
+  // useEffect(()=>{
+  //   axios
+  //   .get('')
+  //   .then(res=>{setCategories(res.data)})
+  // },[])
+  
+
   return (
     <>
       <Navbar/>
@@ -69,18 +90,27 @@ function Home() {
         </div>
         <div className='cards-container'>
           {
-            filteredReuslts.map((survey, i)=>(
-              <div className='survey-card' key={i}>
-                <div className='survey-card-img'>
-                <img src={survey.img} alt="Oops"/>
+            filteredResults.map((course, i)=>(
+              <div className='course-card' key={i}>
+                <div className='course-card-img'>
+                  <img src={course.img} alt="Oops"/>
                 </div>
                 
-                <div className='survey-card-info'>
-                  <p>{survey.name}</p>
-                  <p>{survey.done}/{survey.questions} Questions</p>
-                  <Link to="/authorPage">{survey.author}</Link>
+                <div className='course-card-info'>
+                  <h3>{course.name}</h3>
+                  <div className='course-card-info-rating'>
+                    <div>
+                      <FontAwesomeIcon icon={faChildren}></FontAwesomeIcon>
+                      <p>{`${course.views} просмотров`}</p>
+                    </div>
+                    <div>
+                      <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
+                      <p>{`${course.likes} лайокв`}</p>
+                    </div>
+                  </div>
+                  <p>{`${course.lessons} уроков`}</p>
                 </div>
-                <button onClick={handleSaveButton} id={survey.id} key={i}><FontAwesomeIcon icon={faHeart} size="4x" color={savedId === survey.id ? 'rgba(0, 0, 0, 1)' : 'rgba(0,0,0,0.1)'}></FontAwesomeIcon></button>
+                
                 
               </div>
             ))

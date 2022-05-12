@@ -10,7 +10,7 @@ function Navbar(){
     )
     return(
         <div className="navbar">
-            <Link to={'/'}><h1>Survey App</h1></Link>
+            <Link to={'/'}><h1>Tutorial App</h1></Link>
             <ul>
                 <li><Link to={'/'}><FontAwesomeIcon icon={faHouse} className="icon"/></Link></li>
                 <li><Link to={'/saved'}><FontAwesomeIcon icon={faHeart} className="icon"/></Link></li>

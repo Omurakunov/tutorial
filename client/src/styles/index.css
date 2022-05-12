@@ -131,6 +131,7 @@ body {
 .categories .category-button {
   min-width: 100px;
   height: 40px;
+  padding: 0px 20px 0 20px;
   border-radius: 10rem;
   border: none;
   background-color: var(--main-color);
@@ -153,6 +154,7 @@ body {
   background-color: var(--active-color);
   -webkit-box-shadow: -5px 5px 10px rgba(229, 109, 55, 0.2), 5px -5px 10px rgba(229, 109, 55, 0.2), 5px 5px 13px rgba(229, 109, 55, 0.9), inset 1px 1px 2px rgba(255, 133, 67, 0.3), inset -1px -1px 2px rgba(229, 109, 55, 0.5);
           box-shadow: -5px 5px 10px rgba(229, 109, 55, 0.2), 5px -5px 10px rgba(229, 109, 55, 0.2), 5px 5px 13px rgba(229, 109, 55, 0.9), inset 1px 1px 2px rgba(255, 133, 67, 0.3), inset -1px -1px 2px rgba(229, 109, 55, 0.5);
+  color: white;
 }
 
 .search-bar {
@@ -181,7 +183,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: var(--second-color);
+  background-color: var(--active-color);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -217,12 +219,13 @@ body {
   height: 40px;
 }
 
-.survey-card {
+.course-card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   width: 40em;
-  height: 100px;
+  height: 120px;
   border-radius: 25px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -230,14 +233,22 @@ body {
   -webkit-box-shadow: -5px -7px 20px 1px rgba(0, 0, 0, 0.1);
           box-shadow: -5px -7px 20px 1px rgba(0, 0, 0, 0.1);
   gap: 15px;
-  padding: 0 30px 0 10px;
+  padding: 0 30px 0 0;
   -webkit-transition: 0.250s ease-out;
   transition: 0.250s ease-out;
 }
 
-.survey-card .survey-card-img {
-  width: 75px;
-  height: 75px;
+.course-card button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+}
+
+.course-card .course-card-img {
+  width: 12em;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,19 +260,15 @@ body {
           justify-content: center;
   overflow: hidden;
   border-radius: 20px;
+  background-color: rgba(116, 113, 113, 0.336);
 }
 
-.survey-card .survey-card-img img {
-  width: 300px;
-  height: 300px;
+.course-card .course-card-img img {
+  width: 100%;
+  height: auto;
 }
 
-.survey-card button {
-  background-color: var(--main-color);
-  border: none;
-}
-
-.survey-card .survey-card-info {
+.course-card .course-card-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,24 +279,42 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-flex: 3;
-      -ms-flex-positive: 3;
-          flex-grow: 3;
+  width: 100%;
+  gap: 10px;
 }
 
-.survey-card .survey-card-info a {
-  font-size: 14px;
-  text-decoration: none;
-  color: var(--active-color);
-  margin-top: 12px;
+.course-card .course-card-info h3 {
+  font-size: 24px;
 }
 
-.survey-card .save-button {
+.course-card .course-card-info .course-card-info-rating {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+}
+
+.course-card .course-card-info .course-card-info-rating div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.course-card .course-card-info .course-card-info-rating p {
+  font-size: 13px;
+}
+
+.course-card .save-button {
   width: 38px;
   height: 38px;
 }
 
-.survey-card .save-button-active {
+.course-card .save-button-active {
   width: 38px;
   height: 38px;
   color: black;
@@ -371,9 +396,10 @@ body {
 .profile-header .settings {
   position: absolute;
   right: 0;
+  top: 5px;
   width: 28px;
   height: 28px;
-  color: #315EFF;
+  color: black;
 }
 
 .profile-header .settings:hover {

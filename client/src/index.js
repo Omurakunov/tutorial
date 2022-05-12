@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 import Saved from './contents/saved';
 import Profile from './contents/profile';
-import AuthorPage from './contents/authorPage';
 import Settings from './contents/settings';
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -19,7 +18,6 @@ root.render(
       <Route exact path='/' element={<Home/>}/>
       <Route exact path='/saved' element={<Saved/>}/>
       <Route exact path='/profile' element={<Profile/>}/>
-      <Route exact path='/authorPage' element={<AuthorPage/>}/>
       <Route exact path='/profile/settings' element={<Settings/>}></Route>
     </Routes>
   </Router>
