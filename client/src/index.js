@@ -11,6 +11,7 @@ import {
 import Saved from './contents/saved';
 import Profile from './contents/profile';
 import Settings from './contents/settings';
+import CoursePage from './contents/coursePage';
 const root = createRoot(document.getElementById('root'))
 root.render(
   <Router>
@@ -19,6 +20,7 @@ root.render(
       <Route exact path='/saved' element={<Saved/>}/>
       <Route exact path='/profile' element={<Profile/>}/>
       <Route exact path='/profile/settings' element={<Settings/>}></Route>
+      <Route exact path='/coursepage' element={<CoursePage/>}></Route>
     </Routes>
   </Router>
 )
