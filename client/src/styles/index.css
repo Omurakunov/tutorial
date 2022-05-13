@@ -34,6 +34,11 @@ body {
   margin-top: 2em;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -559,5 +564,33 @@ body {
   background-color: #fff;
   border: none;
   margin-top: 4em;
+}
+
+.course-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.course-page .course-review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50em;
+  height: 30em;
+}
+
+.course-page .course-review .course-review-img {
+  width: 100%;
+  height: 200px;
+}
+
+.course-page .course-review .course-review-img img {
+  height: 100%;
 }
 /*# sourceMappingURL=index.css.map */
