@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
 import {Link} from 'react-router-dom'
+import CourseCards from "./courseCards";
 function Profile() {
   library.add(
     faUser,
@@ -50,30 +51,7 @@ function Profile() {
           </h2>
           <div className="cards-container">
           {
-            user[0].mySurveys.map((course, i)=>(
-              <div className='course-card' key={i}>
-                <div className='course-card-img'>
-                  <img src={course.img} alt="Oops"/>
-                </div>
-                
-                <div className='course-card-info'>
-                  <h3>{course.name}</h3>
-                  <div className='course-card-info-rating'>
-                    <div>
-                      <FontAwesomeIcon icon={faChildren}></FontAwesomeIcon>
-                      <p>{`${course.views} просмотров`}</p>
-                    </div>
-                    <div>
-                      <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
-                      <p>{`${course.likes} лайокв`}</p>
-                    </div>
-                  </div>
-                  <p>{`${course.lessons} уроков`}</p>
-                </div>
-                
-                
-              </div>
-            ))
+            <CourseCards courses={user[0].mySurveys}/>  
           }
           </div>
         </div>

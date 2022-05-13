@@ -3,7 +3,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faHeart, faThumbsUp, faChildren } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect, useMemo } from 'react' 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import CourseCards from './courseCards';
 //FILTER FUNCTION
 const handleFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
@@ -23,7 +25,7 @@ function Home() {
     faChildren
   )
 
-  const [categories, setCategories] = useState(new Array(10).fill('').map((_, i)=>
+  const [categories, setCategories] = useState(new Array(50).fill('').map((_, i)=>
   (
     {id:i, 
     name:'Programming'}
@@ -70,7 +72,7 @@ function Home() {
   //   .then(res=>{setCategories(res.data)})
   // },[])
   
-
+  console.log(courses)
   return (
     <>
       <Navbar/>
@@ -88,34 +90,7 @@ function Home() {
             }
           </div>
         </div>
-        <div className='cards-container'>
-          {
-            filteredResults.map((course, i)=>(
-              <div className='course-card' key={i}>
-                <div className='course-card-img'>
-                  <img src={course.img} alt="Oops"/>
-                </div>
-                
-                <div className='course-card-info'>
-                  <h3>{course.name}</h3>
-                  <div className='course-card-info-rating'>
-                    <div>
-                      <FontAwesomeIcon icon={faChildren}></FontAwesomeIcon>
-                      <p>{`${course.views} просмотров`}</p>
-                    </div>
-                    <div>
-                      <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
-                      <p>{`${course.likes} лайокв`}</p>
-                    </div>
-                  </div>
-                  <p>{`${course.lessons} уроков`}</p>
-                </div>
-                
-                
-              </div>
-            ))
-          }
-        </div>
+        <CourseCards courses={filteredResults}/>
       </div>
     
     </>
