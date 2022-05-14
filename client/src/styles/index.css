@@ -305,31 +305,8 @@ a {
   gap: 25px;
 }
 
-.course-card .course-card-info .course-card-info-rating div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 5px;
-}
-
 .course-card .course-card-info .course-card-info-rating p {
   font-size: 13px;
-}
-
-.course-card .save-button {
-  width: 38px;
-  height: 38px;
-}
-
-.course-card .save-button-active {
-  width: 38px;
-  height: 38px;
-  color: black;
-}
-
-.survey-card:hover {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
 }
 
 .page-container {
@@ -571,6 +548,10 @@ a {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 5em;
 }
 
 .course-page .course-review {
@@ -581,16 +562,158 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50em;
-  height: 30em;
+  width: 35rem;
+  height: 30rem;
+  border-radius: 2em;
+  -webkit-box-shadow: 0px -1px 11px #C2D1E5;
+          box-shadow: 0px -1px 11px #C2D1E5;
 }
 
 .course-page .course-review .course-review-img {
   width: 100%;
-  height: 200px;
+  height: 18rem;
+  background-color: rgba(73, 73, 73, 0.493);
+  border-radius: 2em;
+  overflow: hidden;
 }
 
 .course-page .course-review .course-review-img img {
+  width: 100%;
   height: 100%;
+}
+
+.course-page .course-review .course-review-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 12rem;
+  padding: 20px 20px 20px 40px;
+  position: relative;
+}
+
+.course-page .course-review .course-review-info button {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border: none;
+  -webkit-box-shadow: 0px -1px 11px #C2D1E5;
+          box-shadow: 0px -1px 11px #C2D1E5;
+  position: absolute;
+  right: 40px;
+  top: -30px;
+}
+
+.course-page .course-review .course-review-info h3 {
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  font-size: 28px;
+}
+
+.course-page .course-review .course-review-info h5 {
+  font-size: 18px;
+  font-weight: 200;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  color: var(--active-color);
+}
+
+.course-page .course-review .course-review-info .course-review-info-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+}
+
+.status-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  gap: 5px;
+  font-size: 15px;
+  color: gray;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.course-lessons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+  width: 40%;
+}
+
+.lessons-cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+
+.lessons-cards-container .lessons-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  width: 40rem;
+  height: 5em;
+  border-radius: 1em;
+  -webkit-box-shadow: 2px 2px 8px #C2D1E5;
+          box-shadow: 2px 2px 8px #C2D1E5;
+  padding: 10px 0 0 4rem;
+}
+
+.lessons-cards-container .lessons-card .status-block {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.lessons-cards-container .lessons-card p {
+  font-size: 12px;
+}
+
+.lessons-cards-container .lessons-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.lessons-cards-container .lessons-card .lesson-id {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3em;
+  height: 100%;
+  border-radius: 1em 0 0 1em;
+  background-color: var(--active-color);
+  color: white;
+  text-align: center;
+  padding: 5px 0 0 0;
 }
 /*# sourceMappingURL=index.css.map */

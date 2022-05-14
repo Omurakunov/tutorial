@@ -26,12 +26,12 @@ function CourseCards(props) {
             <div className='course-card-info'>
               <h3>{course.name}</h3>
               <div className='course-card-info-rating'>
-                <div>
-                  <FontAwesomeIcon icon={faChildren}></FontAwesomeIcon>
+                <div className="status-block">
+                  <FontAwesomeIcon icon={faChildren} color="black"></FontAwesomeIcon>
                   <p>{`${course.views} просмотров`}</p>
                 </div>
-                <div>
-                  <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
+                <div className="status-block">
+                  <FontAwesomeIcon icon={faThumbsUp} color="black"></FontAwesomeIcon>
                   <p>{`${course.likes} лайков`}</p>
                 </div>
               </div>
