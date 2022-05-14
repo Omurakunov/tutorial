@@ -21,6 +21,10 @@ body {
   overflow-x: hidden;
 }
 
+video {
+  border-radius: 5px;
+}
+
 .home {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -552,6 +556,8 @@ a {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   padding: 5em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .course-page .course-review {
@@ -715,5 +721,42 @@ a {
   color: white;
   text-align: center;
   padding: 5px 0 0 0;
+}
+
+.lessons-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+}
+
+.lessons-page .lessons-page-theory {
+  width: 40em;
+  position: absolute;
+  border-radius: 0 1em 1em 0;
+  -webkit-box-shadow: 0px -1px 11px #C2D1E5;
+          box-shadow: 0px -1px 11px #C2D1E5;
+  padding: 50px 30px 30px 30px;
+  top: -2em;
+  left: 0;
+  height: 100%;
+}
+
+.lessons-page .lessons-page-video {
+  width: 60em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=index.css.map */
