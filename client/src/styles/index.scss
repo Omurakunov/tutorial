@@ -14,8 +14,10 @@
 }
 body{
   background-color: var(--main-color);
-  padding-top: 8em;
   overflow-x: hidden;
+}
+video{
+  border-radius: 5px;
 }
 .home{
   display: flex;
@@ -30,9 +32,9 @@ a{
 }
 .navbar{
   display: flex;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
+  margin-bottom: 2em;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px 0 30px;
@@ -67,14 +69,7 @@ a{
 .icon:hover{
   color: var(--active-color);
 }
-.filter-bar{
-  width: 100%;
-  height: 10rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
+
 .categories{
   width: 100%;
   align-self: center;
@@ -108,19 +103,21 @@ a{
 }
 .categories::-webkit-scrollbar{
   width: 10px;
+  height: 40px;
 }
 .search-bar{
+  width: 30em;
   display: flex;
   align-items: center;
   position: relative;
   input{
-    width: 30rem;
+    width: 30em;
     height: 40px;
     border-radius: 25px;
     -webkit-appearance: none;
     outline: none;
     border: none;
-    background-color: rgba(229, 229, 229,0.3);
+    background: rgba(0, 0, 0, 0.04);
     padding-left: 15px;
     font-size: medium;
   }
@@ -137,28 +134,30 @@ a{
   right: 0;
 }
 .cards-container{
-  width: 100%;
+  width: 60%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 40px;
+  align-self: center;
+  justify-content: space-around;
   margin-top: 50px;
+  gap: 6em;
   img{
-    width: 40px;
-    height: 40px;
+    width: 100%;
+
   }
 }
 .course-card{
   display: flex;
+  flex-direction: column;
   position: relative;
-  width: 40em;
-  height: 120px;
+  width: 18em;
+  height: 18em;
   border-radius: 25px;
   align-items: center;
   box-shadow: -5px -7px 20px 1px rgba(0, 0, 0, 0.1);
   gap: 15px;
-  padding: 0 30px 0 0;
   transition: 0.250s ease-out;
   button{
     position: absolute;
@@ -168,14 +167,14 @@ a{
     border: none;
   }
   .course-card-img{
-    width:12em;
-    height: 100%;
+    width:100%;
     display: flex;
     align-items:center;
     justify-content: center;
     overflow: hidden;
     border-radius: 20px;
     background-color: rgba(116, 113, 113, 0.336);
+    box-shadow: 0px 4px 4px #C2D1E5;
     img{
       width: 100%;
       height: auto;
@@ -185,38 +184,25 @@ a{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
     width: 100%;
     gap: 10px;
+    padding: 0 0 0 10px;
     h3{
       font-size: 24px;
     }
-    
-    .course-card-info-rating{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      div{
-        display: flex;
-        gap: 5px;
-      }
-      p{
-        font-size: 13px;
-      }
+    #lessons-number{
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      color: var(--active-color);
     }
  }
-  .save-button{
-    width: 38px;
-    height: 38px;
-  }
-  .save-button-active{
-    width: 38px;
-    height: 38px;
-    color:black;
-  }
+
 }
-.survey-card:hover{
-  transform: translateY(-5px);
+.course-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.6);
 }
 .page-container{
   display: flex;
@@ -242,6 +228,18 @@ a{
     width: 120px;
     height: 120px;
     
+  }
+}
+.user-courses{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+  h2{
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--active-color);
   }
 }
 .profile-info{
@@ -365,18 +363,143 @@ a{
 .course-page{
   display: flex;
   width: 100%;
-  
+  justify-content: space-evenly;
+  padding: 5em;
+  flex-wrap: wrap;
   .course-review{
     display: flex;
     flex-direction: column;
-    width: 50em;
-    height: 30em;
+    width: 35rem;
+    height: 30rem;
+    border-radius: 2em;
+    box-shadow: 0px -1px 11px #C2D1E5;
     .course-review-img{
       width: 100%;
-      height: 200px;
+      height: 18rem;
+      background-color: rgba(73, 73, 73, 0.493);
+      border-radius: 2em;
+      overflow: hidden;
       img{
+        width: 100%;
         height: 100%;
       }
     }
+    .course-review-info{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 12rem;
+      padding: 20px 20px 20px 40px;
+      position: relative;
+      button{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border: none;
+        box-shadow: 0px -1px 11px #C2D1E5;
+        position: absolute;
+        right: 40px;
+        top: -30px;
+      }
+      h3{
+        flex-grow: 3;
+        font-size: 28px;
+      }
+      h5{
+        font-size: 18px;
+        font-weight: 200;
+        flex-grow: 1;
+        color: var(--active-color);
+      }
+      .course-review-info-status{
+        display: flex;
+        flex-grow: 4;
+        
+      }
+    }
+  }
+}
+.status-block{
+  display: flex;
+  flex-grow: 1;
+  gap: 5px;
+  font-size: 15px;
+  color: gray;
+  align-items: center;
+}
+.course-lessons{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 40%;
+}
+.lessons-cards-container{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .lessons-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 40rem;
+    height: 5em;
+    border-radius: 1em;
+    box-shadow: 2px 2px 8px #C2D1E5;
+    padding: 10px 0 0 4rem;
+    transition: 0.2s ease-out;
+    .status-block{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    p{
+      font-size: 12px;
+    }
+    h3{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .lesson-id{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3em;
+      height: 100%;
+      border-radius: 1em 0 0 1em;
+      background-color: var(--active-color);
+      color: white;
+      text-align: center;
+      padding: 5px 0 0 0;
+      
+    }
+  }
+}
+.lessons-card:hover{
+  transform: translatey(-7px);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 11px #808c9c;
+}
+.lessons-page{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  .lessons-page-theory{
+    width: 40em;
+    position: absolute;
+    border-radius: 0 1em 1em 0;
+    box-shadow: 0px -1px 11px #C2D1E5;
+    padding: 50px 30px 30px 30px;
+    top: -2em;
+    left: 0;
+    height: 100%;
+  }
+  .lessons-page-video{
+    width: 60em;
+    align-items: center;
+    justify-content: center;
   }
 }

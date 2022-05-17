@@ -35,7 +35,7 @@ function Home() {
   const [courses, setCourses] = useState(new Array(20).fill('').map((_, i)=>(
     {
       id: i,
-      img:"https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
+      img:"https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/Banner-10.png",
       name:`Phyton ${i}`,
       views:282,
       likes:151,
