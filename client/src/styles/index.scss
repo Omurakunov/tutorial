@@ -14,7 +14,6 @@
 }
 body{
   background-color: var(--main-color);
-  padding-top: 8em;
   overflow-x: hidden;
 }
 video{
@@ -33,9 +32,9 @@ a{
 }
 .navbar{
   display: flex;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
+  margin-bottom: 2em;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px 0 30px;
@@ -70,14 +69,7 @@ a{
 .icon:hover{
   color: var(--active-color);
 }
-.filter-bar{
-  width: 100%;
-  height: 10rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
+
 .categories{
   width: 100%;
   align-self: center;
@@ -111,19 +103,21 @@ a{
 }
 .categories::-webkit-scrollbar{
   width: 10px;
+  height: 40px;
 }
 .search-bar{
+  width: 30em;
   display: flex;
   align-items: center;
   position: relative;
   input{
-    width: 30rem;
+    width: 30em;
     height: 40px;
     border-radius: 25px;
     -webkit-appearance: none;
     outline: none;
     border: none;
-    background-color: rgba(229, 229, 229,0.3);
+    background: rgba(0, 0, 0, 0.04);
     padding-left: 15px;
     font-size: medium;
   }
@@ -140,28 +134,30 @@ a{
   right: 0;
 }
 .cards-container{
-  width: 100%;
+  width: 60%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 40px;
+  align-self: center;
+  justify-content: space-around;
   margin-top: 50px;
+  gap: 6em;
   img{
-    width: 40px;
-    height: 40px;
+    width: 100%;
+
   }
 }
 .course-card{
   display: flex;
+  flex-direction: column;
   position: relative;
-  width: 40em;
-  height: 120px;
+  width: 18em;
+  height: 18em;
   border-radius: 25px;
   align-items: center;
   box-shadow: -5px -7px 20px 1px rgba(0, 0, 0, 0.1);
   gap: 15px;
-  padding: 0 30px 0 0;
   transition: 0.250s ease-out;
   button{
     position: absolute;
@@ -171,14 +167,14 @@ a{
     border: none;
   }
   .course-card-img{
-    width:12em;
-    height: 100%;
+    width:100%;
     display: flex;
     align-items:center;
     justify-content: center;
     overflow: hidden;
     border-radius: 20px;
     background-color: rgba(116, 113, 113, 0.336);
+    box-shadow: 0px 4px 4px #C2D1E5;
     img{
       width: 100%;
       height: auto;
@@ -188,23 +184,25 @@ a{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
     width: 100%;
     gap: 10px;
+    padding: 0 0 0 10px;
     h3{
       font-size: 24px;
     }
-    
-    .course-card-info-rating{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      p{
-        font-size: 13px;
-      }
+    #lessons-number{
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      color: var(--active-color);
     }
  }
 
+}
+.course-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.6);
 }
 .page-container{
   display: flex;
@@ -230,6 +228,18 @@ a{
     width: 120px;
     height: 120px;
     
+  }
+}
+.user-courses{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+  h2{
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--active-color);
   }
 }
 .profile-info{
@@ -437,6 +447,7 @@ a{
     border-radius: 1em;
     box-shadow: 2px 2px 8px #C2D1E5;
     padding: 10px 0 0 4rem;
+    transition: 0.2s ease-out;
     .status-block{
       position: absolute;
       bottom: 10px;
@@ -464,6 +475,11 @@ a{
     }
   }
 }
+.lessons-card:hover{
+  transform: translatey(-7px);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 11px #808c9c;
+}
 .lessons-page{
   display: flex;
   justify-content: flex-end;
@@ -486,5 +502,4 @@ a{
     align-items: center;
     justify-content: center;
   }
-
 }

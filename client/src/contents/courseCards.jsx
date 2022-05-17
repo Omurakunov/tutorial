@@ -17,8 +17,8 @@ function CourseCards(props) {
       
     {
       props.courses.map((course, i)=>(
-      <Link to={'/coursepage'}>
-      <div className='course-card' key={i}>
+      <Link to={'/coursepage'} key={i}>
+      <div className='course-card'>
             <div className='course-card-img'>
               <img src={course.img} alt="Oops"/>
             </div>
@@ -35,7 +35,7 @@ function CourseCards(props) {
                   <p>{`${course.likes} лайков`}</p>
                 </div>
               </div>
-              <p>{`${course.lessons} уроков`}</p>
+              <p id="lessons-number">{`${course.lessons} уроков`}</p>
             </div>
             </div>
       </Link> 

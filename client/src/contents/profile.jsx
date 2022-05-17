@@ -45,7 +45,7 @@ function Profile() {
           <h2>{user[0].userName}</h2>
           <p>{user[0].email}</p>
         </div>
-        <div className="user-surveys">
+        <div className="user-courses">
           <h2>
             Пройденные курсы:
           </h2>

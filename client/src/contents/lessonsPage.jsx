@@ -14,7 +14,9 @@ function LessonsPage(props) {
         </p>
       </div>
       <div className='lessons-page-video'>
-      <video width="900" height="auto" controls src={video} type="video/mp4" > </video>
+        <div>
+           <video width="900" height="auto" controls src={video} type="video/mp4" > </video>
+        </div>
       </div>
       
     </div>
