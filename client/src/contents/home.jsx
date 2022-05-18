@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CourseCards from './courseCards';
+import Select from 'react-select'
 //FILTER FUNCTION
 const handleFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
@@ -25,10 +26,12 @@ function Home() {
     faChildren
   )
 
-  const [categories, setCategories] = useState(new Array(50).fill('').map((_, i)=>
+  const [categories, setCategories] = useState(new Array(10).fill('').map((_, i)=>
   (
     {id:i, 
-    name:'Programming'}
+     label:'Programming',
+     value:'programming' 
+    }
   )))
 
 
@@ -82,13 +85,7 @@ function Home() {
             <input className='Search' placeholder='Search..' value={searchFilter} onChange={(e)=>{setSearchFilter(e.target.value)}}/>
             <div className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} color="white"></FontAwesomeIcon></div>
           </div>
-          <div className='categories'>
-            {
-            categories.map((category, i)=>(
-              <button className={categoryId === category.id? 'category-button active' : 'category-button'} id={category.id} onClick={handleCategoryButton} key={i}>{category.name}</button>
-            ))
-            }
-          </div>
+          <Select options={categories}/>
         </div>
         <CourseCards courses={filteredResults}/>
       </div>
