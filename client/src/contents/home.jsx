@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CourseCards from './courseCards';
 import Select from 'react-select'
+import Background from '../pictures/1.png'
 //FILTER FUNCTION
 const handleFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
@@ -79,6 +80,10 @@ function Home() {
   return (
     <>
       <Navbar/>
+      <div className='bc-img'>
+      <div></div>
+        <img src={Background}></img>
+      </div>
       <div className="home">
         <div className='filter-bar'>
           <div className='search-bar'>
