@@ -34,6 +34,7 @@ function CourseCards(props) {
                   <FontAwesomeIcon icon={faThumbsUp} color="black"></FontAwesomeIcon>
                   <p>{`${course.likes} лайков`}</p>
                 </div>
+                {props.save}
               </div>
               <p id="lessons-number">{`${course.lessons} уроков`}</p>
             </div>
