@@ -80,10 +80,7 @@ function Home() {
   return (
     <>
       <Navbar/>
-      <div className='bc-img'>
-      <div></div>
-        <img src={Background}></img>
-      </div>
+      <div className='bc-img'></div>
       <div className="home">
         <div className='filter-bar'>
           <div className='search-bar'>

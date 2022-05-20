@@ -5,6 +5,15 @@
   --main-color: #fff;
   --first-color: black;
   --second-color: #315EFF;
+  
+  --fs-12:12px;
+  --fs-15:15px;
+  --fs-18:18px;
+  --fs-22:22px;
+  --fs-24:24px;
+  --fs-20:20px;
+  --fs-28:28px;
+  --fs-16:16px;
 }
 *{
   margin: 0;
@@ -21,24 +30,12 @@ video{
 }
 .bc-img{
   width: 100%;
-  height: auto;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   top: 0;
-  img{
-    width: 100%;
-    z-index: 2;
-  }
-
-}
-.bc-img::before{
-  content: '';
-  width: 100%;
-  height:500px;
-  position: absolute;
-  background-image: linear-gradient(to top, rgba(255,255,255, 1), rgba(255,255,255,0));
-  bottom: -80px;
-  right: 0;
-  z-index: 3;
+  background-image: url("../pictures/1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .home{
   display: flex;
@@ -60,14 +57,14 @@ a{
   margin-bottom: 2em;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px 0 30px;
+  padding: 0 40px 0 30px;
   height: 6em;
   width: 100%;
   background-color: var(--main-color);
   z-index: 3;
   border-radius: 0px 0px 26px 26px;
   box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.2);
-  z-index: 5;
+  z-index: 6;
   a{
     text-decoration: none;
     color: var(--first-color);
@@ -98,7 +95,40 @@ a{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 15px;
+}
+.auth{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  .registration{
+    background-color: var(--active-color);
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 1em;
+    color: #fff;
+    font-weight: 600;
+    font-size: var(--fs-16);
+    transition: 0.150s ease-out;
+  }
+  .login{
+    background-color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: var(--fs-16);
+    transition: 0.150s ease-out;
+  }
+  .login:hover{
+    transform: translateY(-3px);
+    border-bottom: 2px solid black;
+  }
+  .registration:hover{
+    transform: translateY(-3px);
+    
+  }
 }
 .search-bar{
   width: 30em;
@@ -114,10 +144,11 @@ a{
     border: none;
     background-color: #fff;
     padding-left: 15px;
-    font-size: medium;
+    font-size: var(--fs-16);
     box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.3);
   }
 }
+
 .search-icon{
   display: flex;
   background-color: var(--active-color);
@@ -187,7 +218,7 @@ a{
     gap: 10px;
     padding: 0 0 0 10px;
     h3{
-      font-size: 24px;
+      font-size: var(--fs-24);
     }
     #lessons-number{
       position: absolute;
@@ -207,7 +238,7 @@ a{
   flex-direction: column;
   align-items: center;
   gap: 2em;
-  
+  margin-top: 5em;
   h1{
     font-weight: 600;
     margin-bottom: 1.5em;
@@ -235,7 +266,7 @@ a{
   text-align: center;
   margin-top: 30px;
   h2{
-    font-size: 28px;
+    font-size: var(--fs-28);
     font-weight: 400;
     color: var(--active-color);
   }
@@ -243,10 +274,10 @@ a{
 .profile-info{
   text-align: center;
   h2{
-    font-size: 22px;
+    font-size: var(--fs-22);
   }
   p{
-    font-size: 16px;
+    font-size: var(--fs-16);
   }
 }
 .profile-header{
@@ -336,12 +367,12 @@ a{
     gap: 2.7em;
     label{
       font-weight: 700;
-      font-size: 20px;
+      font-size: var(--fs-20);
     }
     input{
       border: none;
       outline: none;
-      font-size: medium;
+      font-size: var(--fs-16);
       
     }
     div{
@@ -402,10 +433,10 @@ a{
       }
       h3{
         flex-grow: 3;
-        font-size: 28px;
+        font-size: var(--fs-28);
       }
       h5{
-        font-size: 18px;
+        font-size: var(--fs-18);
         font-weight: 200;
         flex-grow: 1;
         color: var(--active-color);
@@ -422,7 +453,7 @@ a{
   display: flex;
   flex-grow: 1;
   gap: 5px;
-  font-size: 15px;
+  font-size: var(--fs-15);
   color: gray;
   align-items: center;
 }
@@ -452,10 +483,10 @@ a{
       right: 10px;
     }
     p{
-      font-size: 12px;
+      font-size: var(--fs-12);
     }
     h3{
-      font-size: 20px;
+      font-size: var(--fs-20);
       font-weight: 600;
     }
     .lesson-id{
@@ -523,10 +554,30 @@ a{
 .css-b62m3t-container{
   width: 20em;
   height: 40px;
-  
+  z-index: 5;
   .css-1s2u09g-control{
     border-radius: 1em;
     box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.3);
   }
   
+}
+
+
+@media (max-width:570px) {
+  .search-bar{
+    width: 15em;
+  }
+  .search-icon{
+    right: -15px;
+  }
+  .css-b62m3t-container{
+    width: 12em;
+  }
+  .course-page{
+    padding: 0;
+  }
+  .course-review{
+    width: 20em;
+    height: 100px;
+  }
 }
