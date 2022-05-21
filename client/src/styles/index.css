@@ -5,6 +5,14 @@
   --main-color: #fff;
   --first-color: black;
   --second-color: #315EFF;
+  --fs-12:12px;
+  --fs-15:15px;
+  --fs-18:18px;
+  --fs-22:22px;
+  --fs-24:24px;
+  --fs-20:20px;
+  --fs-28:28px;
+  --fs-16:16px;
 }
 
 * {
@@ -26,26 +34,12 @@ video {
 
 .bc-img {
   width: 100%;
-  height: auto;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   top: 0;
-}
-
-.bc-img img {
-  width: 100%;
-  z-index: 2;
-}
-
-.bc-img::before {
-  content: '';
-  width: 100%;
-  height: 500px;
-  position: absolute;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(white), to(rgba(255, 255, 255, 0)));
-  background-image: linear-gradient(to top, white, rgba(255, 255, 255, 0));
-  bottom: -80px;
-  right: 0;
-  z-index: 3;
+  background-image: url("../pictures/1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .home {
@@ -82,7 +76,7 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 15px 0 30px;
+  padding: 0 40px 0 30px;
   height: 6em;
   width: 100%;
   background-color: var(--main-color);
@@ -90,7 +84,7 @@ a {
   border-radius: 0px 0px 26px 26px;
   -webkit-box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.2);
-  z-index: 5;
+  z-index: 6;
 }
 
 .navbar a {
@@ -144,7 +138,57 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 15px;
+}
+
+.auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.auth .registration {
+  background-color: var(--active-color);
+  border: none;
+  width: 120px;
+  height: 30px;
+  border-radius: 1em;
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--fs-16);
+  -webkit-transition: 0.150s ease-out;
+  transition: 0.150s ease-out;
+}
+
+.auth .login {
+  background-color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: var(--fs-16);
+  -webkit-transition: 0.150s ease-out;
+  transition: 0.150s ease-out;
+}
+
+.auth .login:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  border-bottom: 2px solid black;
+}
+
+.auth .registration:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
 }
 
 .search-bar {
@@ -167,7 +211,7 @@ a {
   border: none;
   background-color: #fff;
   padding-left: 15px;
-  font-size: medium;
+  font-size: var(--fs-16);
   -webkit-box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.3);
           box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.3);
 }
@@ -285,7 +329,7 @@ a {
 }
 
 .course-card .course-card-info h3 {
-  font-size: 24px;
+  font-size: var(--fs-24);
 }
 
 .course-card .course-card-info #lessons-number {
@@ -314,6 +358,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   gap: 2em;
+  margin-top: 5em;
 }
 
 .page-container h1 {
@@ -358,7 +403,7 @@ a {
 }
 
 .user-courses h2 {
-  font-size: 28px;
+  font-size: var(--fs-28);
   font-weight: 400;
   color: var(--active-color);
 }
@@ -368,11 +413,11 @@ a {
 }
 
 .profile-info h2 {
-  font-size: 22px;
+  font-size: var(--fs-22);
 }
 
 .profile-info p {
-  font-size: 16px;
+  font-size: var(--fs-16);
 }
 
 .profile-header {
@@ -523,13 +568,13 @@ a {
 
 .user-settings form label {
   font-weight: 700;
-  font-size: 20px;
+  font-size: var(--fs-20);
 }
 
 .user-settings form input {
   border: none;
   outline: none;
-  font-size: medium;
+  font-size: var(--fs-16);
 }
 
 .user-settings form div {
@@ -627,11 +672,11 @@ a {
   -webkit-box-flex: 3;
       -ms-flex-positive: 3;
           flex-grow: 3;
-  font-size: 28px;
+  font-size: var(--fs-28);
 }
 
 .course-page .course-review .course-review-info h5 {
-  font-size: 18px;
+  font-size: var(--fs-18);
   font-weight: 200;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -656,7 +701,7 @@ a {
       -ms-flex-positive: 1;
           flex-grow: 1;
   gap: 5px;
-  font-size: 15px;
+  font-size: var(--fs-15);
   color: gray;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -712,11 +757,11 @@ a {
 }
 
 .lessons-cards-container .lessons-card p {
-  font-size: 12px;
+  font-size: var(--fs-12);
 }
 
 .lessons-cards-container .lessons-card h3 {
-  font-size: 20px;
+  font-size: var(--fs-20);
   font-weight: 600;
 }
 
@@ -816,11 +861,31 @@ a {
 .css-b62m3t-container {
   width: 20em;
   height: 40px;
+  z-index: 5;
 }
 
 .css-b62m3t-container .css-1s2u09g-control {
   border-radius: 1em;
   -webkit-box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.3);
           box-shadow: 0 8px 20px 1px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 570px) {
+  .search-bar {
+    width: 15em;
+  }
+  .search-icon {
+    right: -15px;
+  }
+  .css-b62m3t-container {
+    width: 12em;
+  }
+  .course-page {
+    padding: 0;
+  }
+  .course-review {
+    width: 20em;
+    height: 100px;
+  }
 }
 /*# sourceMappingURL=index.css.map */
