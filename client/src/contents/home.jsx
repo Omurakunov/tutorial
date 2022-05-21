@@ -66,7 +66,7 @@ function Home() {
 
   // useEffect(()=>{
   //   axios
-  //   .get('http://139.180.146.234:8000/course/', {headers:{'Access-Control-Allow-Origin' : 'c7e137c6b6cd4ea541dcad3545a05922f6edf499'}})
+  //   .get('http://http://164.92.91.86/re/', {headers:{'Access-Control-Allow-Origin' : 'c7e137c6b6cd4ea541dcad3545a05922f6edf499'}})
   //   .then(res=>{setCourses(res.data)})
   // },[])
 
