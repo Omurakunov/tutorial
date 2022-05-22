@@ -32,16 +32,7 @@ function Home() {
   )))
 
 
-  const [courses, setCourses] = useState(new Array(20).fill('').map((_, i)=>(
-    {
-      id: i,
-      img:"https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/Banner-10.png",
-      name:`Phyton ${i}`,
-      views:282,
-      likes:151,
-      lessons:29
-    }
-  )))
+  const [courses, setCourses] = useState([])
   
   
   const [categoryId, setCategoryId] = useState(null)
@@ -60,11 +51,11 @@ function Home() {
   console.log(savedId)
 
 
-  // useEffect(()=>{
-  //   axios
-  //   .get('http://139.180.146.234:8000/course/', {headers:{'Access-Control-Allow-Origin' : 'c7e137c6b6cd4ea541dcad3545a05922f6edf499'}})
-  //   .then(res=>{setCourses(res.data)})
-  // },[])
+  useEffect(()=>{
+    axios
+    .get('http://159.203.126.141/course/')
+    .then(res=>{setCourses(res.data)})
+  },[])
 
   // useEffect(()=>{
   //   axios
