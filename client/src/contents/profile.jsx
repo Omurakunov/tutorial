@@ -19,7 +19,7 @@ function Profile() {
       mySurveys: new Array(5).fill('').map((_, i)=>(
           {
             id: i,
-            img:"https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
+            img:"https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/Banner-10.png",
             name:`Phyton ${i}`,
             views:282,
             likes:151,
@@ -49,11 +49,7 @@ function Profile() {
           <h2>
             Пройденные курсы:
           </h2>
-          <div className="cards-container">
-          {
             <CourseCards courses={user[0].mySurveys}/>  
-          }
-          </div>
         </div>
       </div>
     </>
