@@ -10,7 +10,7 @@ function Navbar(){
         faHouse,
         faUser
     )
-    const [currentUser, setCurrentUser] = useState(" ")
+    const [currentUser, setCurrentUser] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
 
 
@@ -27,7 +27,7 @@ function Navbar(){
                 <li><Link to={'/saved'}><FontAwesomeIcon icon={faHeart} className="icon"/></Link></li>
                 <li><Link to={'/profile'}><FontAwesomeIcon icon={faUser} className="icon"/></Link></li>
                 </ul>
-                : <AuthBlock/>
+                : <AuthBlock isOpen={isOpen}/>
             }
             <div className={isOpen?'navbar-burger open' : 'navbar-burger'} onClick={e=>{
                 handleBurger()

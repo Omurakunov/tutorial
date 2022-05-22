@@ -761,4 +761,23 @@ a{
       }
     }
   }
+  .auth{
+    flex-direction: column;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 10em;
+      height: 18em;
+      background-color: rgb(255, 255, 255);
+      border-radius: 0 0 0 1em;
+      z-index: 10;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 50px;
+      transform: translateX(100%);
+      padding-bottom: 50px;
+      
+      transition: all 0.25s ease-in;
+  }
+  
 }

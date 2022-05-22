@@ -1,6 +1,7 @@
-function AuthBlock() {
+function AuthBlock(props) {
+    console.log(props.isOpen)
     return(
-    <div className="auth">
+    <div className={props.isOpen ?"auth active" :"auth"}>
         <button className="login">
             LOGIN
         </button>
