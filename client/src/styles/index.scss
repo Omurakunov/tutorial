@@ -167,6 +167,8 @@ a{
     font-weight: 600;
     font-size: var(--fs-16);
     transition: 0.150s ease-out;
+    text-align: center;
+   padding: 2px ;
   }
   .login{
     background-color: #fff;
@@ -627,7 +629,42 @@ a{
   }
   
 }
-
+.auth-container{
+  width: 30em;
+  height: 35em;
+  background-color: rgba(254, 122, 61, 1);
+  margin-top: 5em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  padding: 30px;
+  h1{
+    font-size: var(--fs-28);
+  }
+  .field{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    
+    label{
+      font-size: var(--fs-18);
+    }
+    input{
+      width: 100%;
+      height: 40px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid white;
+      outline:none;
+      color: #fff;
+      padding-left: 10px;
+      font-size: var(--fs-16);
+    }
+  }
+}
 
 
 @media (max-width:570px) {
