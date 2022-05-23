@@ -33,6 +33,7 @@ function Profile() {
     <>
       <Navbar/>
       <div className="page-container">
+        <div className="profile">
         <div className="profile-header">
           <h1>Profile</h1>
           <Link to='/profile/settings'><FontAwesomeIcon icon={faGear} className="settings"/></Link>
@@ -45,6 +46,8 @@ function Profile() {
           <h2>{user[0].userName}</h2>
           <p>{user[0].email}</p>
         </div>
+        </div>
+       
         <div className="user-courses">
           <h2>
             Пройденные курсы:

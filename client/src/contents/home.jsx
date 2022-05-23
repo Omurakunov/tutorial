@@ -66,7 +66,7 @@ function Home() {
 
   // useEffect(()=>{
   //   axios
-  //   .get('http://139.180.146.234:8000/course/', {headers:{'Access-Control-Allow-Origin' : 'c7e137c6b6cd4ea541dcad3545a05922f6edf499'}})
+  //   .get('http://159.203.126.141/course/')
   //   .then(res=>{setCourses(res.data)})
   // },[])
 
@@ -80,10 +80,7 @@ function Home() {
   return (
     <>
       <Navbar/>
-      <div className='bc-img'>
-      <div></div>
-        <img src={Background}></img>
-      </div>
+      <div className='bc-img'></div>
       <div className="home">
         <div className='filter-bar'>
           <div className='search-bar'>
