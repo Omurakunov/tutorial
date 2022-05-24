@@ -10,12 +10,12 @@ function Navbar(){
         faHouse,
         faUser
     )
-    const [currentUser, setCurrentUser] = useState(" ")
+    const [currentUser, setCurrentUser] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
 
 
     const handleBurger = () =>{
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen)  
     }
     return(
         <div className="navbar">

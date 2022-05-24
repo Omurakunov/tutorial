@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
+
 function AuthBlock(props) {
     console.log(props.isOpen)
     return(
     <div className={props.isOpen ?"auth active" :"auth"}>
-        <button className="login">
+        <Link className="login" to="/login">
             LOGIN
-        </button>
-        <button className="registration">
-            Registration
-        </button>
+        </Link>
+        <Link className="registration" to="/registration">Registartion</Link>
     </div>
     )
 }

@@ -13,6 +13,8 @@ import Profile from './contents/profile';
 import Settings from './contents/settings';
 import CoursePage from './contents/coursePage';
 import LessonsPage from './contents/lessonsPage';
+import Registration from './contents/Authentification/registration';
+import Login from './contents/Authentification/login';
 const root = createRoot(document.getElementById('root'))
 root.render(
   <Router>
@@ -23,6 +25,8 @@ root.render(
       <Route exact path='/profile/settings' element={<Settings/>}></Route>
       <Route exact path='/coursepage' element={<CoursePage/>}></Route>
       <Route exact path='/coursepage/lessonpage' element={<LessonsPage/>}></Route>
+      <Route exact path='/login' element={<Login/>}></Route>
+      <Route exact path='/registration' element={<Registration/>}></Route>
     </Routes>
   </Router>
 )
