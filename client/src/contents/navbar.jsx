@@ -15,7 +15,7 @@ function Navbar(){
 
 
     const handleBurger = () =>{
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen)  
     }
     return(
         <div className="navbar">
