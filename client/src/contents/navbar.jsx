@@ -10,7 +10,7 @@ function Navbar(){
         faHouse,
         faUser
     )
-    const [currentUser, setCurrentUser] = useState(null)
+    const [currentUser, setCurrentUser] = useState(" ")
     const [isOpen, setIsOpen] = useState(false)
 
 
