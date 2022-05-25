@@ -18,8 +18,7 @@ const handleToggle = (data, element) =>{
 }
 
 function Home() {
-
-  //AWESOME FONTS
+//AWESOME FONTS
   library.add(
     faMagnifyingGlass,
     faHeart,
@@ -27,31 +26,12 @@ function Home() {
     faChildren
   )
 
-  const [categories, setCategories] = useState(new Array(10).fill('').map((_, i)=>
-  (
-    {id:i, 
-     label:'Programming',
-     value:'programming' 
-    }
-  )))
-
-
-  const [courses, setCourses] = useState(new Array(20).fill('').map((_, i)=>(
-    {
-      id: i,
-      img:"https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/Banner-10.png",
-      name:`Phyton ${i}`,
-      views:282,
-      likes:151,
-      lessons:29
-    }
-  )))
-  
-  
+  const [categories, setCategories] = useState([])
+  const [courses, setCourses] = useState([])
   const [categoryId, setCategoryId] = useState(null)
   const [savedId, setSavedId] = useState(null)
   const [searchFilter, setSearchFilter] = useState("")
-
+  const [token, setToken] = useState('')
 
   //HANDLE CATEGORY BUTTON
   const handleCategoryButton = (e) =>{
@@ -63,20 +43,18 @@ function Home() {
   },[courses, searchFilter])
   console.log(savedId)
 
-
-  // useEffect(()=>{
-  //   axios
-  //   .get('http://159.203.126.141/course/')
-  //   .then(res=>{setCourses(res.data)})
-  // },[])
-
-  // useEffect(()=>{
-  //   axios
-  //   .get('')
-  //   .then(res=>{setCategories(res.data)})
-  // },[])
   
-  console.log(courses)
+
+  const categoryReq = () =>{
+      console.log()
+      axios
+      .post('http://164.92.91.86/category/category-list/',{headers:{"Authorization" : 'Token 22c0ab578daade239901fc3db32ebc80ff627e89'}})
+      .then(res=>{setCategories(res.data)})
+    } 
+
+  useEffect(()=>{
+    categoryReq()
+  },[])
   return (
     <>
       <Navbar/>

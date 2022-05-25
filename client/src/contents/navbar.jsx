@@ -1,7 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart, faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import AuthBlock from './authBlock';
 function Navbar(){
@@ -11,8 +11,15 @@ function Navbar(){
         faUser
     )
     const [currentUser, setCurrentUser] = useState(null)
+    useEffect(()=>{
+        validateUser()
+    },[])
     const [isOpen, setIsOpen] = useState(false)
-
+    const validateUser = () =>{
+        localStorage.getItem('token')
+        ? setCurrentUser(localStorage.getItem('token'))
+        :setCurrentUser(null)
+    }
 
     const handleBurger = () =>{
         setIsOpen(!isOpen)  

@@ -17,7 +17,7 @@ import Registration from './contents/Authentification/registration';
 import Login from './contents/Authentification/login';
 const root = createRoot(document.getElementById('root'))
 root.render(
-  <Router>
+    <Router>
     <Routes>
       <Route exact path='/' element={<Home/>}/>
       <Route exact path='/saved' element={<Saved/>}/>

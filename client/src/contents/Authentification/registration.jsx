@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 
 function Registration(props) {
@@ -38,7 +38,7 @@ function Registration(props) {
         <div className="page-container">
             {
                 isSucces 
-                ? <Navigate replace to="/"></Navigate>
+                ? <Navigate replace to="/login"></Navigate>
 
                 :<div className="auth-container">
                     <form onSubmit={e=>{handleSubmit(e)}}>
@@ -61,6 +61,11 @@ function Registration(props) {
                             {!!err.response?.data?.non_field_errors?.[0]||''}
                         </div>
                         <button>Submit</button>
+                        
+                            <p>Already have an account?</p>
+                            <Link to="/login">Login</Link>
+                        
+                        
                     </form>
                 </div>
             }
