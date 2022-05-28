@@ -48,12 +48,12 @@ function Profile() {
         </div>
         </div>
        
-        <div className="user-courses">
+        {/* <div className="user-courses">
           <h2>
             Пройденные курсы:
           </h2>
             <CourseCards courses={user[0].mySurveys}/>  
-        </div>
+        </div> */}
       </div>
     </>
     

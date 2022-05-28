@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CourseCards from './courseCards';
 import Select from 'react-select'
-import Background from '../pictures/1.png'
+import config from './configs';
 //FILTER FUNCTION
 const handleFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
@@ -29,32 +29,56 @@ function Home() {
   const [categories, setCategories] = useState([])
   const [courses, setCourses] = useState([])
   const [categoryId, setCategoryId] = useState(null)
-  const [savedId, setSavedId] = useState(null)
   const [searchFilter, setSearchFilter] = useState("")
-  const [token, setToken] = useState('')
-
+  const [token, setToken] = useState(localStorage.getItem('jwt'))
+  const [ options, setOptions] = useState()
+  const [ selectValue, setSelectValue] = useState()
   //HANDLE CATEGORY BUTTON
   const handleCategoryButton = (e) =>{
     setCategoryId(handleToggle(categoryId, e))
   }
   //SEARCHBAR
   const filteredResults = useMemo(()=>{
-    return handleFilter(courses, searchFilter, 'name')
+    return handleFilter(courses, searchFilter, 'name_of_course')
   },[courses, searchFilter])
-  console.log(savedId)
-
   
+  const finalFilteredResults = useMemo(()=>{
+    return handleFilter(filteredResults, selectValue?.value, 'category')
+    
+  },[filteredResults, selectValue])
+
 
   const categoryReq = () =>{
       console.log()
       axios
-      .post('http://164.92.91.86/category/category-list/',{headers:{"Authorization" : 'Token 22c0ab578daade239901fc3db32ebc80ff627e89'}})
-      .then(res=>{setCategories(res.data)})
+      .get(`${config.Url}/category/category-list/`,{headers:{'Authorization' : `Token ${token}`}})
+      .then(res=>{setCategories(res.data?.results)})
+      
     } 
+
+    const coursesReq = () =>{
+      console.log()
+      axios
+      .get(`${config.Url}/course/`,{headers:{'Authorization' : `Token ${token}`}})
+      .then(res=>{setCourses(res.data?.results)})
+      
+    }
 
   useEffect(()=>{
     categoryReq()
+    coursesReq()
   },[])
+  useEffect(()=>{
+    setOptions(new Array(categories.length).fill('').map((_, i)=>
+      (
+        {id:i, 
+         label:categories[i]?.title,
+         value:categories[i]?.title 
+        }
+      )))
+  }, [categories])
+
+console.log(courses)
   return (
     <>
       <Navbar/>
@@ -65,9 +89,13 @@ function Home() {
             <input className='Search' placeholder='Search..' value={searchFilter} onChange={(e)=>{setSearchFilter(e.target.value)}}/>
             <div className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} color="white"></FontAwesomeIcon></div>
           </div>
-          <Select options={categories}/>
+          <Select 
+            value={selectValue}
+            onChange={setSelectValue}
+            options={options}
+          />
         </div>
-        <CourseCards courses={filteredResults}/>
+        <CourseCards courses={finalFilteredResults}/>
       </div>
     
     </>

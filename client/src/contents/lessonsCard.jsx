@@ -9,13 +9,12 @@ function LessonsCard(props) {
   library.add(
     faClock
   )
-
-  
+    console.log(props.lessons)
   return(
     <div className="lessons-cards-container">
       {
         props.lessons.map((lesson, i)=>(
-          <Link to={'/coursepage/lessonpage'} key={i}>
+          <Link to={`/coursepage${props.id}/${lesson.name}`} key={i}>
               <div className="lessons-card" >
                 <div className="lesson-id">
                   <h2>{lesson.id < 10 ? `0${lesson.id}` : lesson.id}</h2>
@@ -34,4 +33,5 @@ function LessonsCard(props) {
     </div>
   )
 }
+
 export default LessonsCard

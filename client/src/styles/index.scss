@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 :root{
   --card-dimension: 40em;
-  --active-color: rgba(254, 121, 61, 1);
+  --active-color: rgb(254, 121, 61);
   --main-color: #fff;
   --first-color: black;
   --second-color: #315EFF;
@@ -444,12 +444,23 @@ a{
       align-items: flex-start;
       justify-content: center;
       gap: 20px;
+      
     }
   }
   button{
     background-color: #fff;
     border: none;
     margin-top: 4em;
+    transition: all 0.150s ease-in;
+    .logout-icon{
+      transition: all 0.150s ease-in;
+    }
+  }
+  .logout-btn:hover{
+    transform: scale(1.08);
+    .logout-icon{
+      color: var(--active-color);
+    }
   }
 }
 .course-page{
@@ -483,7 +494,7 @@ a{
       height: 12rem;
       padding: 20px 20px 20px 40px;
       position: relative;
-      button{
+      .save-btn{
         border-radius: 50%;
         width: 60px;
         height: 60px;
@@ -519,6 +530,10 @@ a{
   font-size: var(--fs-15);
   color: gray;
   align-items: center;
+  button{
+    background-color: transparent;
+    border: none;
+  }
 }
 .course-lessons{
   display: flex;
@@ -649,14 +664,18 @@ a{
       margin: 0;
     }
     
+    .auth-links{
+      p{
+        font-size: var(--fs-15);
+        margin: 10px 0px 5px 0;      
+      }
+      a{
+        font-size: var(--fs-15);
+        color: var(--active-color);
+        transition: 0.3s ease-out;
+        text-decoration: underline;
+      }
       
-    p{
-      font-size: var(--fs-15);
-      margin: 10px 0px 5px 0;      
-    }
-    a{
-      font-size: var(--fs-15);
-      color: var(--active-color);
     }
     
     .field{
@@ -707,7 +726,10 @@ a{
 
 @media (max-width:570px) {
   .search-bar{
-    width: 15em;
+    width: 18em;
+    .search-icon{
+      display: none;
+    }
   }
   .search-icon{
     right: -15px;
@@ -837,26 +859,6 @@ a{
         
       }
     }
-  }
-  .auth{
-      flex-direction: column;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 10em;
-      height: 18em;
-      background-color: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(8px);
-      border-radius: 0 0 0 1em;
-      z-index: 10;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 50px;
-      transform: translateX(100%);
-      padding-bottom: 50px;
-      box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.2);
-      transition: all 0.25s ease-in;
-
   }
   
 }

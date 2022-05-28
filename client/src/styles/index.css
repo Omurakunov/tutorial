@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 :root {
   --card-dimension: 40em;
-  --active-color: rgba(254, 121, 61, 1);
+  --active-color: rgb(254, 121, 61);
   --main-color: #fff;
   --first-color: black;
   --second-color: #315EFF;
@@ -683,6 +683,22 @@ a {
   background-color: #fff;
   border: none;
   margin-top: 4em;
+  -webkit-transition: all 0.150s ease-in;
+  transition: all 0.150s ease-in;
+}
+
+.user-settings button .logout-icon {
+  -webkit-transition: all 0.150s ease-in;
+  transition: all 0.150s ease-in;
+}
+
+.user-settings .logout-btn:hover {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+.user-settings .logout-btn:hover .logout-icon {
+  color: var(--active-color);
 }
 
 .course-page {
@@ -740,7 +756,7 @@ a {
   position: relative;
 }
 
-.course-page .course-review .course-review-info button {
+.course-page .course-review .course-review-info .save-btn {
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -791,6 +807,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.status-block button {
+  background-color: transparent;
+  border: none;
 }
 
 .course-lessons {
@@ -999,14 +1020,17 @@ a {
   margin: 0;
 }
 
-.auth-container form p {
+.auth-container form .auth-links p {
   font-size: var(--fs-15);
   margin: 10px 0px 5px 0;
 }
 
-.auth-container form a {
+.auth-container form .auth-links a {
   font-size: var(--fs-15);
   color: var(--active-color);
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  text-decoration: underline;
 }
 
 .auth-container form .field {
@@ -1062,7 +1086,10 @@ a {
 
 @media (max-width: 570px) {
   .search-bar {
-    width: 15em;
+    width: 18em;
+  }
+  .search-bar .search-icon {
+    display: none;
   }
   .search-icon {
     right: -15px;
@@ -1212,36 +1239,6 @@ a {
   .navbar .open .burger-btn::after {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
-  }
-  .auth {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 10em;
-    height: 18em;
-    background-color: rgba(255, 255, 255, 0.3);
-    -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
-    border-radius: 0 0 0 1em;
-    z-index: 10;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    gap: 50px;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    padding-bottom: 50px;
-    -webkit-box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.2);
-            box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.2);
-    -webkit-transition: all 0.25s ease-in;
-    transition: all 0.25s ease-in;
   }
 }
 /*# sourceMappingURL=index.css.map */

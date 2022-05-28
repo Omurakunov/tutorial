@@ -15,16 +15,17 @@ import CoursePage from './contents/coursePage';
 import LessonsPage from './contents/lessonsPage';
 import Registration from './contents/Authentification/registration';
 import Login from './contents/Authentification/login';
+import PrivateRoute from './contents/PrivateRoute';
 const root = createRoot(document.getElementById('root'))
 root.render(
     <Router>
     <Routes>
-      <Route exact path='/' element={<Home/>}/>
-      <Route exact path='/saved' element={<Saved/>}/>
-      <Route exact path='/profile' element={<Profile/>}/>
-      <Route exact path='/profile/settings' element={<Settings/>}></Route>
-      <Route exact path='/coursepage' element={<CoursePage/>}></Route>
-      <Route exact path='/coursepage/lessonpage' element={<LessonsPage/>}></Route>
+      <Route exact path='/' element={<PrivateRoute><Home/></PrivateRoute>}/>
+      <Route exact path='/saved' element={<PrivateRoute><Saved/></PrivateRoute>}/>
+      <Route exact path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
+      <Route exact path='/profile/settings' element={<PrivateRoute><Settings/></PrivateRoute>}></Route>
+      <Route exact path='/course:id' element={<PrivateRoute><CoursePage/></PrivateRoute>}></Route>
+      <Route exact path='/course:id/:lesson.name' element={<PrivateRoute><LessonsPage/></PrivateRoute>}></Route>
       <Route exact path='/login' element={<Login/>}></Route>
       <Route exact path='/registration' element={<Registration/>}></Route>
     </Routes>

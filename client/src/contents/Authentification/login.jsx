@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, Navigate } from 'react-router-dom'
+import config from "../configs";
 function Login(props) {
     const initialValues = {email:"", password:""}
     const [formValues, setFormValues] = useState(initialValues)
@@ -9,7 +10,7 @@ function Login(props) {
     const [token, setToken] = useState([])
 
     useEffect(()=>{
-        localStorage.setItem('token', token )
+        localStorage.setItem('jwt', token )
     },[token])
 
 
@@ -18,10 +19,13 @@ function Login(props) {
         setFormValues({...formValues, [name]:value })
     }
 
+    useEffect(()=>{
+        localStorage.setItem('email', formValues.email)
+    }, [isSucces])
 
     const registrationReq = () =>{
         axios
-        .post('http://164.92.91.86/account/login/',{
+        .post(`${config.Url}/account/login/`,{
             email: formValues.email,
             password: formValues.password
         })
@@ -67,8 +71,10 @@ function Login(props) {
                         
                         </div>
                         <button>Submit</button>
-                        <p>Don't have an account?</p>
-                        <Link to='/reagistration'>Registration</Link>
+                        
+                        <div className="auth-links">
+                        <p>Don't have an account? <Link to='/registration'>Registration</Link></p>
+                        </div>
                     </form>
                 
                 </div>

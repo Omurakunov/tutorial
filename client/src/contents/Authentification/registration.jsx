@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { Link, Navigate } from 'react-router-dom'
-
+import config from "../configs"
 
 function Registration(props) {
     const initialValues = {email:"", password:"", password_confirmation:""}
@@ -14,7 +14,7 @@ function Registration(props) {
     }
     const registrationReq = () =>{
         axios
-        .post('http://164.92.91.86/account/register/',{
+        .post(`${config.Url}/account/register/`,{
             email: formValues.email,
             password: formValues.password,
             password_confirmation: formValues.password_confirmation

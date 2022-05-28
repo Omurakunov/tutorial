@@ -11,32 +11,41 @@ function CourseCards(props) {
         faChildren
       )
     
-      
+      console.log()
  return(
     <div className='cards-container'>
       
     {
       props.courses.map((course, i)=>(
-      <Link to={'/coursepage'} key={i}>
+      <Link to={`/course${course.id}`} key={i}>
       <div className='course-card'>
             <div className='course-card-img'>
-              <img src={course.img} alt="Oops"/>
+              <img src={course.images[0]?.image} alt="Oops"/>
             </div>
           
             <div className='course-card-info'>
-              <h3>{course.name}</h3>
+              <h3>{course.name_of_course}</h3>
               <div className='course-card-info-rating'>
-                <div className="status-block">
+                {
+                  course.likes
+                  ? <div className="status-block">
                   <FontAwesomeIcon icon={faChildren} color="black"></FontAwesomeIcon>
                   <p>{`${course.views} просмотров`}</p>
                 </div>
-                <div className="status-block">
+                : <div></div>
+                }
+                 {
+                  course.likes
+                  ? <div className="status-block">
                   <FontAwesomeIcon icon={faThumbsUp} color="black"></FontAwesomeIcon>
                   <p>{`${course.likes} лайков`}</p>
                 </div>
-                {props.save}
+                : <div></div>
+                }
+                
+                
               </div>
-              <p id="lessons-number">{`${course.lessons} уроков`}</p>
+              <p id="lessons-number">{`${course.lessons.length} урока`}</p>
             </div>
             </div>
       </Link> 

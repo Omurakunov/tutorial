@@ -9,6 +9,15 @@ function Settings(params) {
     faUser,
     faArrowRightFromBracket
 )
+
+  const logout = () =>{
+    localStorage.removeItem('jwt')
+    setTimeout(()=>{
+      window.location.reload(true)
+    },1000)
+    
+  }
+
   return(
     <>
       <div className='page-container'>
@@ -38,7 +47,7 @@ function Settings(params) {
             <input type="text" name='email' id='email' value={userInfo.email}/>
            </div>
           </form>
-          <button ><FontAwesomeIcon icon={faArrowRightFromBracket} size="3x"></FontAwesomeIcon></button>
+          <button onClick={()=>{logout()}} className="logout-btn"><FontAwesomeIcon icon={faArrowRightFromBracket} size="3x" className='logout-icon'></FontAwesomeIcon></button>
         </div>
       </div>
     </>
