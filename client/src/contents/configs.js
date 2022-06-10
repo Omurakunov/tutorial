@@ -1,4 +1,4 @@
 const config = {
-    "Url":"http://164.92.91.86"
+    "Url":"http://leadev.club:8000"
 }
 export default config

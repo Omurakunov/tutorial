@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faClock} from '@fortawesome/free-solid-svg-icons';
+import {faClock, faCommentsDollar} from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { Link } from "react-router-dom";
 
@@ -9,12 +9,13 @@ function LessonsCard(props) {
   library.add(
     faClock
   )
-    console.log(props.lessons)
+  const lessons = props.lesson
+
   return(
     <div className="lessons-cards-container">
       {
-        props.lessons.map((lesson, i)=>(
-          <Link to={`/coursepage${props.id}/${lesson.name}`} key={i}>
+        props.lessons?.map((lesson, i)=>(
+          <Link to={`/coursepage/lesson${lesson.id} `} key={i}>
               <div className="lessons-card" >
                 <div className="lesson-id">
                   <h2>{lesson.id < 10 ? `0${lesson.id}` : lesson.id}</h2>

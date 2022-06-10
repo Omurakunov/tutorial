@@ -5,7 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import CourseCards from "./courseCards";
+import SavedCourseCards from "./savedCourseCards";
 import config from './configs';
 function Saved() {
 
@@ -16,16 +16,22 @@ function Saved() {
   
   const [savedCourses, setSavedCourses] = useState([])
 
+  const savedReq = () =>{
+    axios.get(`${config.Url}/course/savedlist `,{headers:{'Authorization' : `Token ${localStorage.getItem('jwt')}`}})
+    .then(res=>{setSavedCourses(res.data)})
+  }
+
   useEffect(()=>{
-    axios.get(`${config.Url}/ `).then(res=>{setSavedCourses(res.data)})
-  })
-  
+    savedReq()
+  },[])
+
+ console.log(savedCourses)
     return(
       <>
         <Navbar/>
         <div className="page-container">
           <h1>Favorites:</h1>
-          {/* <CourseCards courses={savedCourses}/> */}
+          <SavedCourseCards courses={savedCourses}/>
         </div>
         </>
         

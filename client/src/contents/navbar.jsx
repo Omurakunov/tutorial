@@ -2,7 +2,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart, faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
+import logo from '../pictures/leadev-01.png'
 function Navbar(){
     library.add(
         faHeart,
@@ -25,15 +26,13 @@ function Navbar(){
     }
     return(
         <div className="navbar">
-            <Link to={'/'}><h1>Tutorial App</h1></Link>
-                <ul className='links'>
-                <li><Link to={'/'}><FontAwesomeIcon icon={faHouse} className="icon"/></Link></li>
-                <li><Link to={'/saved'}><FontAwesomeIcon icon={faHeart} className="icon"/></Link></li>
-                <li><Link to={'/profile'}><FontAwesomeIcon icon={faUser} className="icon"/></Link></li>
+            <Link to={'/'}><img src={logo}></img></Link>
+                <ul className={isOpen?'links active':'links'}>
+                <li><NavLink to={'/'} className={({isActive})=> isActive ? "active-link": ""}><FontAwesomeIcon icon={faHouse} className="icon"/></NavLink></li>
+                <li><NavLink to={'/saved'} className={({isActive})=> isActive ? "active-link": ""}><FontAwesomeIcon icon={faHeart} className="icon"/></NavLink></li>
+                <li><NavLink to={'/profile'} className={({isActive})=> isActive ? "active-link": ""}><FontAwesomeIcon icon={faUser} className="icon"/></NavLink></li>
                 </ul>
-            <div className={isOpen?'navbar-burger open' : 'navbar-burger'} onClick={e=>{
-                handleBurger()
-            }}>
+            <div className={isOpen?'navbar-burger open' : 'navbar-burger'} onClick={e=>{handleBurger()}}>
                 <div className='burger-btn'></div>
             </div>
         </div>

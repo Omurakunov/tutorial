@@ -10,13 +10,11 @@ function CourseCards(props) {
         faThumbsUp,
         faChildren
       )
-    
-      console.log()
  return(
     <div className='cards-container'>
       
     {
-      props.courses.map((course, i)=>(
+      props.courses?.map((course, i)=>(
       <Link to={`/course${course.id}`} key={i}>
       <div className='course-card'>
             <div className='course-card-img'>
@@ -26,14 +24,6 @@ function CourseCards(props) {
             <div className='course-card-info'>
               <h3>{course.name_of_course}</h3>
               <div className='course-card-info-rating'>
-                {
-                  course.likes
-                  ? <div className="status-block">
-                  <FontAwesomeIcon icon={faChildren} color="black"></FontAwesomeIcon>
-                  <p>{`${course.views} просмотров`}</p>
-                </div>
-                : <div></div>
-                }
                  {
                   course.likes
                   ? <div className="status-block">

@@ -25,7 +25,7 @@ root.render(
       <Route exact path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
       <Route exact path='/profile/settings' element={<PrivateRoute><Settings/></PrivateRoute>}></Route>
       <Route exact path='/course:id' element={<PrivateRoute><CoursePage/></PrivateRoute>}></Route>
-      <Route exact path='/course:id/:lesson.name' element={<PrivateRoute><LessonsPage/></PrivateRoute>}></Route>
+      <Route exact path='/coursepage/lesson:id' element={<PrivateRoute><LessonsPage/></PrivateRoute>}></Route>
       <Route exact path='/login' element={<Login/>}></Route>
       <Route exact path='/registration' element={<Registration/>}></Route>
     </Routes>
