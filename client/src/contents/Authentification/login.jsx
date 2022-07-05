@@ -70,7 +70,7 @@ function Login(props) {
                             {err.response?.data?.non_field_errors?.[0]||''}
                         
                         </div>
-                        <button>Submit</button>
+                        <button className='submit-btn'>Submit</button>
                         
                         <div className="auth-links">
                         <p>Don't have an account? <Link to='/registration'>Registration</Link></p>

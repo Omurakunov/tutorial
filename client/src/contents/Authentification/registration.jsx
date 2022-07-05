@@ -2,8 +2,8 @@ import axios from "axios"
 import { useState } from "react"
 import { Link, Navigate } from 'react-router-dom'
 import config from "../configs"
-
-function Registration(props) {
+import ProfileDataReg from "./profileDataReg";
+function Registration() {
     const initialValues = {email:"", password:"", password_confirmation:""}
     const [formValues, setFormValues] = useState(initialValues)
     const [err, setErr] = useState([])
@@ -28,20 +28,21 @@ function Registration(props) {
         
     }
     
-    const handleSubmit = (e) =>{
+    const handleRegistration = (e) =>{
         e.preventDefault()
         setErr([])
         registrationReq()
+        e.target.reset()
     }
     console.log(isSucces)
     return(
         <div className="page-container">
             {
                 isSucces 
-                ? <Navigate replace to="/login"></Navigate>
+                ? <ProfileDataReg/>
 
                 :<div className="auth-container">
-                    <form onSubmit={e=>{handleSubmit(e)}}>
+                    <form onSubmit={e=>{handleRegistration(e)}}>
                         <h1>Registration</h1>
                         <div className="field">
                             <label>Email</label>
@@ -60,7 +61,7 @@ function Registration(props) {
                             {!!err.response?.data?.password_confirmation||''}
                             {!!err.response?.data?.non_field_errors?.[0]||''}
                         </div>
-                        <button>Submit</button>
+                        <button className='submit-btn'>Submit</button>
                         
                             <p>Already have an account?</p>
                             <Link to="/login">Login</Link>

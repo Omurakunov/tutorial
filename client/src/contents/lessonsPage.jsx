@@ -1,13 +1,14 @@
 import Navbar from './navbar'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
-import {useParams, Navigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import config  from './configs';
+import '../styles/prism/prism.css'
 
-function LessonsPage(props) {
+
+function LessonsPage() {
   library.add(
     faArrowRight, faArrowLeft
   )
@@ -24,6 +25,7 @@ function LessonsPage(props) {
 
   useEffect(()=>{
     lessonReq()
+ 
   },[])
 
   // const handleClick = () =>{
@@ -34,25 +36,11 @@ function LessonsPage(props) {
     <>
     <Navbar/>
     <div className="lessons-page">
-      
-      <div className='lessons-page-video'>
-        <div>
-           <video width="1000" height="auto" controls src={lesson?.videos[0]?.video} type="video/mp4" > </video>
-        </div>
-        <div className='buttons'>
-          {/* <button id='previous' onClick={handleClick()}>Back to courses</button> */}
-          
-        </div>
-        
-      </div>
-      <div className='lessons-page-theory'>
-        <p>
-         {
-           lesson?.description
-         }
-        </p>
-      </div>
-      
+      <pre>
+        <code className='language-javascript'>
+         console.log('hello world') 
+        </code>
+      </pre>
     </div>
     
     </>

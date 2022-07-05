@@ -1,7 +1,6 @@
 import Navbar from './navbar'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Suspense, lazy } from 'react';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faHeart, faThumbsUp, faChildren } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect, useMemo } from 'react' 
 import axios from 'axios'
@@ -15,10 +14,6 @@ const handleFilter = (data, value, filteredName) => {
 const handleCategoryFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
 }
-//TOGGLE FUNCTION
-const handleToggle = (data, element) =>{
-  return data === +element.target.id ? null : +element.target.id 
-}
 
 function Home() {
 //AWESOME FONTS
@@ -31,15 +26,10 @@ function Home() {
 
   const [categories, setCategories] = useState([])
   const [courses, setCourses] = useState([])
-  const [categoryId, setCategoryId] = useState(null)
   const [searchFilter, setSearchFilter] = useState("")
-  const [token, setToken] = useState(localStorage.getItem('jwt'))
+  const [token] = useState(localStorage.getItem('jwt'))
   const [ options, setOptions] = useState()
   const [ selectValue, setSelectValue] = useState()
-  //HANDLE CATEGORY BUTTON
-  const handleCategoryButton = (e) =>{
-    setCategoryId(handleToggle(categoryId, e))
-  }
   //SEARCHBAR
   const filteredResults = useMemo(()=>{
     return handleFilter(courses, searchFilter, 'name_of_course')
@@ -72,7 +62,7 @@ function Home() {
     coursesReq()
   },[])
   useEffect(()=>{
-    setOptions(new Array(2).fill('').map((_, i)=>
+    setOptions(new Array(categories.length).fill('').map((_, i)=>
       (
         {id:i, 
          label:categories[i]?.title,

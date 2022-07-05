@@ -1,9 +1,12 @@
 import Navbar from "./navbar"
-import {  faUser, faHeart, faGear, faChildren, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import {  faUser, faHeart, faGear} from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
 import {Link} from 'react-router-dom'
+import config from './configs'
+import axios from "axios"
+import { useEffect } from "react";
 import CourseCards from "./courseCards";
 function Profile() {
   library.add(
@@ -11,24 +14,23 @@ function Profile() {
     faHeart,
     faGear
   )
+  const [history, setHistory] = useState()
   const [user] = useState(new Array(1).fill("").map((_, i)=>(
     {
       id: i,
       userName: 'Alex_Good',
       email: 'alexGood@gmail.com',
-      mySurveys: new Array(5).fill('').map((_, i)=>(
-          {
-            id: i,
-            img:"https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/Banner-10.png",
-            name:`Phyton ${i}`,
-            views:282,
-            likes:151,
-            lessons:29
-          }
-        ))
-      
+      mySurveys: history
+    })))
+
+    const historyReq = () =>{
+      axios.get(`${config.Url}/course/history/ `,{headers:{'Authorization' : `Token ${localStorage.getItem('jwt')}`}})
+      .then(res=>{setHistory(res.data)})
     }
-  )))
+    useEffect(() => {
+      historyReq()
+    }, []);
+
   return(
     <>
       <Navbar/>
@@ -48,12 +50,12 @@ function Profile() {
         </div>
         </div>
        
-        {/* <div className="user-courses">
-          <h2>
-            Пройденные курсы:
-          </h2>
-            <CourseCards courses={user[0].mySurveys}/>  
-        </div> */}
+        <div className="user-courses">
+          <h1>
+            Просмотренные:
+          </h1>
+            <CourseCards courses={history}/>  
+        </div>
       </div>
     </>
     

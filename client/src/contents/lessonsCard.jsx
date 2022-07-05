@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faClock, faCommentsDollar} from '@fortawesome/free-solid-svg-icons';
+import {faClock} from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,6 @@ function LessonsCard(props) {
   library.add(
     faClock
   )
-  const lessons = props.lesson
 
   return(
     <div className="lessons-cards-container">

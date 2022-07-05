@@ -36,8 +36,8 @@
 body{
   background-color: var(--main-color);
   height: 100vh;
-  overflow: hidden;
-  background-color: #F0F8FF;
+  overflow-x: hidden;
+
 }
 video{
   border-radius: 5px;
@@ -407,9 +407,9 @@ a{
   text-align: center;
   margin-top: 30px;
   h2{
-    font-size: var(--fs-28);
-    font-weight: 400;
-    color: var(--active-color);
+    font-size: var(--fs-24);
+    font-weight: 600;
+    color: var(--first-color);
   }
 }
 
@@ -717,6 +717,39 @@ a{
   color: var(--first-color);
   justify-content: center;
   padding: 30px;
+  .avatar{
+    p{
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+      color: var(--active-color);
+      font-weight:600;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .avatar-icon{
+        transition: 0.250s ease-in-out;
+
+      }
+    }
+    div:hover{
+      border: 2px solid var(--active-color);
+     .avatar-icon{
+       transform: scale(1.1);
+       color: var(--active-color);
+     }
+    }
+    input{
+      display: none;
+    }
+  }
   a{
     color: var(--active-color);
     text-decoration: underline;
@@ -771,7 +804,7 @@ a{
         border: 2px solid var(--active-color);
       }
     }
-    button{
+    .submit-btn{
       width: 150px;
       height: 35px;
       background-color: #fff;
@@ -782,7 +815,7 @@ a{
       font-weight: 600;
       margin-top: 20px;
     }
-    button:hover{
+    .submit-btn:hover{
       background-color: var(--active-color);
       color: #fff;
     }

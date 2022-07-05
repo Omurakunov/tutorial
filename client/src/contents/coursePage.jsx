@@ -2,7 +2,7 @@ import Navbar from "./navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faHeart, faThumbsUp, faClock, faStar} from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import LessonsCard from "./lessonsCard";
 import axios from "axios";
 import {useParams} from 'react-router-dom'
@@ -20,10 +20,6 @@ function CoursePage() {
     
     const [course, setCourse] = useState([])
     const params = useParams()
-    const [rating, setRating] = useState(null)
-    const [maxRating, setMaxRating] = useState(new Array(5).fill(' '))
-    const token = localStorage.getItem('jwt')
-    const ref = useRef(null)
     const [likes, setLikes] = useState()
 
     useEffect(()=>{
@@ -46,7 +42,7 @@ function CoursePage() {
 
     const saveReq = () =>{
         axios
-        .post(`${config.Url}/course/${params.id}/saved/`,{course:1},{headers:{'Authorization' : `Token ${localStorage.getItem('jwt')}`}})
+        .post(`${config.Url}/course/${params.id}/saved/`,{headers:{'Authorization' : `Token ${localStorage.getItem('jwt')}`}})
         
     }   
 
