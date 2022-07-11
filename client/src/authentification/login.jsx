@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, Navigate } from 'react-router-dom'
-import config from "../configs";
+import config from "../configs/configs";
 function Login(props) {
     const initialValues = {email:"", password:""}
     const [formValues, setFormValues] = useState(initialValues)
@@ -13,17 +13,16 @@ function Login(props) {
         localStorage.setItem('jwt', token )
     },[token])
 
+    useEffect(()=>{
+        localStorage.setItem('email', formValues.email)
+    }, [isSucces])
 
     const handleChange = (e) =>{
         const {name, value} = e.target
         setFormValues({...formValues, [name]:value })
     }
 
-    useEffect(()=>{
-        localStorage.setItem('email', formValues.email)
-    }, [isSucces])
-
-    const registrationReq = () =>{
+    const loginReq = () =>{
         axios
         .post(`${config.Url}/account/login/`,{
             email: formValues.email,
@@ -45,7 +44,7 @@ function Login(props) {
     const handleSubmit = (e) =>{
         e.preventDefault()
         setErr([])
-        registrationReq()
+        loginReq()
     }
     
     return(

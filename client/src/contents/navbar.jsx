@@ -3,7 +3,7 @@ import { faHeart, faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom'
-import logo from '../pictures/leadev-01.png'
+import logo from '../assets/pictures/leadev-01.png'
 function Navbar(){
     library.add(
         faHeart,
@@ -15,6 +15,7 @@ function Navbar(){
         validateUser()
     },[])
     const [isOpen, setIsOpen] = useState(false)
+
     const validateUser = () =>{
         localStorage.getItem('jwt')
         ? setCurrentUser(true)
@@ -24,6 +25,7 @@ function Navbar(){
     const handleBurger = () =>{
         setIsOpen(!isOpen)  
     }
+
     return(
         <div className="navbar">
             <Link to={'/'}><img src={logo}></img></Link>

@@ -1,22 +1,25 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'
-import './styles/index.css';
-import Home from './contents/home';
+import './assets/styles/index.css';
+import Home from './pages/home';
 import reportWebVitals from './reportWebVitals';
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import Saved from './contents/saved';
-import Profile from './contents/profile';
-import Settings from './contents/settings';
-import CoursePage from './contents/coursePage';
-import LessonsPage from './contents/lessonsPage';
-import Registration from './contents/Authentification/registration';
-import Login from './contents/Authentification/login';
-import PrivateRoute from './contents/PrivateRoute';
+import Saved from './pages/saved';
+import Profile from './pages/profile';
+import Settings from './pages/settings';
+import CoursePage from './pages/course-page';
+import LessonsPage from './pages/lessons-page';
+import Registration from './authentification/registration';
+import Login from './authentification/login';
+import PrivateRoute from './contents/private-route';
+import ProfileDataReg from "./authentification/profile-data-reg";
 const root = createRoot(document.getElementById('root'))
+
 root.render(
     <Router>
     <Routes>
@@ -25,9 +28,10 @@ root.render(
       <Route exact path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
       <Route exact path='/profile/settings' element={<PrivateRoute><Settings/></PrivateRoute>}></Route>
       <Route exact path='/course:id' element={<PrivateRoute><CoursePage/></PrivateRoute>}></Route>
-      <Route exact path='/coursepage/lesson:id' element={<PrivateRoute><LessonsPage/></PrivateRoute>}></Route>
+      <Route exact path='/course-:param/lesson-:id' element={<PrivateRoute><LessonsPage/></PrivateRoute>}></Route>
       <Route exact path='/login' element={<Login/>}></Route>
       <Route exact path='/registration' element={<Registration/>}></Route>
+      <Route exact path='/registration/user-info' element={<ProfileDataReg/>}></Route>
     </Routes>
   </Router>
 )

@@ -1,16 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faHeart, faThumbsUp, faChildren } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faHeart, faThumbsUp, faChildren, faMessage } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {Link} from 'react-router-dom'
-import React, { Component }  from 'react';
 function CourseCards(props) {
 
     library.add(
         faMagnifyingGlass,
         faHeart,
         faThumbsUp,
-        faChildren
+        faChildren,
+        faMessage
       )
+
  return(
     <div className='cards-container'>
       
@@ -19,9 +20,8 @@ function CourseCards(props) {
       <Link to={`/course${course.id}`} key={i}>
       <div className='course-card'>
             <div className='course-card-img'>
-              <img src={course.images[0]?.image} alt="Oops"/>
+                <img src={course?.images[0]?.image} alt="Oops"/>
             </div>
-          
             <div className='course-card-info'>
               <h3>{course.name_of_course}</h3>
               <div className='course-card-info-rating'>

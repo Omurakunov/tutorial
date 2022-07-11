@@ -19,24 +19,24 @@ function savedCourseCards(props) {
         <Link to={`/course${course.id}`} key={i}>
             <div className='course-card'>
                 <div className='course-card-img'>
-                    <img src={course.course[0]?.images[0]?.image} alt="Oops"/>
+                    <img src={course.course?.images[0]?.image} alt="Oops"/>
                 </div>
           
                 <div className='course-card-info'>
-                    <h3>{course.course[0]?.name_of_course}</h3>
+                    <h3>{course.course?.name_of_course}</h3>
                     <div className='course-card-info-rating'>
                     
                     {
-                        course.course[0]?.likes
+                        course.course?.likes
                         ? <div className="status-block">
                             <FontAwesomeIcon icon={faThumbsUp} color="black"></FontAwesomeIcon>
-                            <p>{`${course.course[0]?.likes} лайков`}</p>
+                            <p>{`${course.course?.likes} лайков`}</p>
                             </div>
                         : <div></div>
                     }
                 
                 </div>
-                    <p id="lessons-number">{`${course.course[0]?.lessons.length} урока`}</p>
+                    <p id="lessons-number">{`${course.course?.lessons.length} урока`}</p>
                 </div>
             </div>
         </Link> 

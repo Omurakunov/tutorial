@@ -1,12 +1,12 @@
-import Navbar from './navbar'
+import Navbar from '../contents/navbar'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faHeart, faThumbsUp, faChildren } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect, useMemo } from 'react' 
 import axios from 'axios'
 import Select from 'react-select'
-import config from './configs';
-import CourseCards from './courseCards';
+import config from '../configs/configs';
+import CourseCards from '../contents/course-cards';
 //FILTER FUNCTION
 const handleFilter = (data, value, filteredName) => {
   return value ? [...data].filter(item => item[filteredName].toLowerCase().includes(value.toLowerCase())) : [...data]
@@ -28,7 +28,7 @@ function Home() {
   const [courses, setCourses] = useState([])
   const [searchFilter, setSearchFilter] = useState("")
   const [token] = useState(localStorage.getItem('jwt'))
-  const [ options, setOptions] = useState()
+  const [ options, setOptions] = useState([])
   const [ selectValue, setSelectValue] = useState()
   //SEARCHBAR
   const filteredResults = useMemo(()=>{
