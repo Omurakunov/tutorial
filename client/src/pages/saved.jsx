@@ -1,11 +1,12 @@
-import Navbar from "./navbar"
+import Navbar from "../contents/navbar"
 import { useEffect, useState} from 'react'
 import {  faHeart,faChildren, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import CourseCards from "./courseCards";
+import SavedCourseCards from "../contents/saved-course-cards";
+import config from '../configs/configs';
 function Saved() {
 
   library.add(
@@ -13,28 +14,24 @@ function Saved() {
     faChildren, faThumbsUp
   )
   
-  const [savedCourses, setSavedCourses] = useState(new Array(7).fill('').map((_, i)=>(
-    {
-      id: i,
-      img:"https://www.freecodecamp.org/news/content/images/size/w2000/2022/02/Banner-10.png",
-      name:`Phyton ${i}`,
-      views:282,
-      likes:151,
-      lessons:29
-      
-    }
-  )))
+  const [savedCourses, setSavedCourses] = useState([])
 
-  // useEffect(()=>{
-  //   axios.get('').then(res=>{setSavedCourses(res.data)})
-  // })
-  
+  const savedReq = () =>{
+    axios.get(`${config.Url}/course/savedlist `,{headers:{'Authorization' : `Token ${localStorage.getItem('jwt')}`}})
+    .then(res=>{setSavedCourses(res.data)})
+  }
+
+  useEffect(()=>{
+    savedReq()
+  },[])
+
+ console.log(savedCourses)
     return(
       <>
         <Navbar/>
         <div className="page-container">
           <h1>Favorites:</h1>
-          <CourseCards courses={savedCourses}/>
+          <SavedCourseCards courses={savedCourses}/>
         </div>
         </>
         
