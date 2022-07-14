@@ -16,7 +16,7 @@ function savedCourseCards(props) {
       
     {
       props.courses?.map((course, i)=>(   
-        <Link to={`/course${course.id}`} key={i}>
+        <Link to={`/course${course?.course.id}`} key={i}>
             <div className='course-card'>
                 <div className='course-card-img'>
                     <img src={course.course?.images[0]?.image} alt="Oops"/>

@@ -360,12 +360,33 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px 0 20px;
+}
+.profile form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.profile form div {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+.profile form div input {
+  height: 45px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 5px;
 }
 .profile .profile-info {
   text-align: center;
 }
 .profile .profile-info h2 {
   font-size: var(--fs-22);
+  margin: 10px 0 0 0;
 }
 .profile .profile-info p {
   font-size: var(--fs-16);
@@ -392,16 +413,21 @@ a {
   justify-content: center;
 }
 .profile .profile-header .settings {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
   position: absolute;
   right: 0;
-  top: 5px;
+  top: 2px;
   width: 28px;
   height: 28px;
   color: black;
+  transition: 0.15s all ease-in-out;
 }
 .profile .profile-header .settings:hover {
-  animation: settingsHover 3s infinite linear;
   color: var(--active-color);
+  transform: scale(1.05);
 }
 
 .user-courses {

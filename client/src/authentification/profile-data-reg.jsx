@@ -2,17 +2,17 @@ import {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileImage} from "@fortawesome/free-solid-svg-icons";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {Navigate} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import config from "../configs/configs";
-
+import Avatar from 'react-avatar';
 function ProfileDataReg() {
 
     library.add(
        faFileImage
     )
 
-    const initialValues = {firstname:"", lastname:"", image:''}
+    const initialValues = {firstname:"", lastname:""}
     const [formValues, setFormValues] = useState(initialValues)
     const [err, setErr] = useState([])
     const [isSuccess, setIsSuccess] = useState(false)
@@ -26,7 +26,6 @@ function ProfileDataReg() {
         axios.post(`${config.Url}/account/info_users/`,{
             name: formValues.firstname,
             surname: formValues.lastname,
-            image: formValues.image
         },{headers:{'Authorization' : `Token ${localStorage.getItem('jwt')}`}})
             .then(()=>{setIsSuccess(true)})
             .catch(err=>{
@@ -35,7 +34,8 @@ function ProfileDataReg() {
             })
     }
 
-    const handleSubmit = () =>{
+    const handleSubmit = (e) =>{
+        e.preventDefault()
         profileDataReq()
     }
     console.log(err)
@@ -45,21 +45,8 @@ function ProfileDataReg() {
             isSuccess
             ? <Navigate replace to='/'></Navigate>
             :   <div className="auth-container">
-                <form onSubmit={()=>handleSubmit()}>
-                    {
-                        formValues.image
-                            ? <div className="profile-img-container">
-                                <img src={formValues.image} alt="oops"/>
-                                <p>{formValues.image}</p>
-                            </div>
-                            : <div className='avatar'>
-                                <div>
-                                    <label htmlFor="image"><FontAwesomeIcon className="avatar-icon" icon={faFileImage} color="gray" size="4x"/></label>
-                                </div>
-                                <p>Добавить фото</p>
-                                <input type="file" name='image' id="image" value={formValues.image} onChange={e=>{handleChange(e)}}/>
-                            </div>
-                    }
+                <form onSubmit={(e)=>handleSubmit(e)}>
+                    <Avatar name={`${formValues.firstname} ${formValues.lastname}`} round={true} size='150'></Avatar>
 
                     <div className="field">
                         <label>Имя</label>
