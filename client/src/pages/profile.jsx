@@ -42,6 +42,13 @@ function Profile() {
         })
   }
 
+  const signOut = () =>{
+    localStorage.removeItem('jwt')
+    setTimeout(()=>{
+      window.location.reload(true)
+    },1000)
+  }
+
   const handleSubmit = () =>{
     formValues.firstname && formValues.lastname ? profileDataReq() : setIsChangeable(false)
     window.location.reload(true)
@@ -99,7 +106,7 @@ function Profile() {
           }
 
         </div>
-
+        <button className='sign-out' onClick={()=>{signOut()}}><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon> Sign Out</button>
         <div className="user-courses">
           <h1>
             Просмотренные:

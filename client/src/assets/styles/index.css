@@ -819,6 +819,21 @@ a {
   color: #fff;
 }
 
+.sign-out {
+  width: 150px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 15px;
+  border: 2px solid var(--first-color);
+  font-size: 16px;
+  transition: 0.15s all ease-in-out;
+}
+
+.sign-out:hover {
+  transform: scale(1.05);
+  border: 2px solid var(--active-color);
+}
+
 @media (max-width: 570px) {
   .search-bar {
     width: 18em;

@@ -7,7 +7,6 @@ import LessonsCard from "../contents/lessons-card";
 import axios from "axios";
 import {useParams} from 'react-router-dom'
 import config from '../configs/configs';
-import img from '../assets/pictures/tiny_rider_by_telthona_df40fkd-350t.jpg'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
