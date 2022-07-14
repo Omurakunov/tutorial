@@ -31,15 +31,9 @@ function LessonsPage() {
         .then(res=>{setLesson(res.data.file)})
   }
 
-  console.log(lesson)
-
-
-  // const handleClick = () =>{
-  //   <Navigate replace to={}></Navigate>
-  // }
 
   return(
-    <>
+    <body>
     <Navbar/>
     <div className="lessons-page">
       <Markdown className="theory">
@@ -47,7 +41,7 @@ function LessonsPage() {
       </Markdown>
     </div>
     
-    </>
+    </body>
     
   )
 }

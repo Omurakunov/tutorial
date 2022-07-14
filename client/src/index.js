@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 import Saved from './pages/saved';
 import Profile from './pages/profile';
-import Settings from './pages/settings';
 import CoursePage from './pages/course-page';
 import LessonsPage from './pages/lessons-page';
 import Registration from './authentification/registration';
@@ -26,7 +25,6 @@ root.render(
       <Route exact path='/' element={<PrivateRoute><Home/></PrivateRoute>}/>
       <Route exact path='/saved' element={<PrivateRoute><Saved/></PrivateRoute>}/>
       <Route exact path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
-      <Route exact path='/profile/settings' element={<PrivateRoute><Settings/></PrivateRoute>}></Route>
       <Route exact path='/course:id' element={<PrivateRoute><CoursePage/></PrivateRoute>}></Route>
       <Route exact path='/course-:param/lesson-:id' element={<PrivateRoute><LessonsPage/></PrivateRoute>}></Route>
       <Route exact path='/login' element={<Login/>}></Route>

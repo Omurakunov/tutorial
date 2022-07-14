@@ -70,11 +70,8 @@ function Home() {
         }
       )))
   }, [categories])
-
-console.log(courses)
-console.log(categories)
   return (
-    <>
+    <body>
       <Navbar/>
       {/* <img src={orange} alt="oops" className='bc-1'></img>
       <img src={blue} alt="oops" className='bc-2'></img> */}
@@ -98,7 +95,7 @@ console.log(categories)
         
       </div>
       
-    </>
+    </body>
   );
 }
 
