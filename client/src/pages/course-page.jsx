@@ -46,9 +46,8 @@ function CoursePage() {
 
     }
 
-    console.log(savedStatus)
     return(
-        <>
+        <body>
                 <Navbar/>
                 <div className="course-page">
 
@@ -81,7 +80,7 @@ function CoursePage() {
             <ToastContainer
             position='bottom-center'
             />
-            </>
+            </body>
 
 
     )

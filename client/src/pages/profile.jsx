@@ -68,9 +68,8 @@ function Profile() {
       profileReq()
 
     }, []);
-  console.log(user)
   return(
-    <>
+    <body>
       <Navbar/>
       <div className="page-container">
         <div className="profile">
@@ -114,7 +113,7 @@ function Profile() {
             <CourseCards courses={history}/>
         </div>
       </div>
-    </>
+    </body>
     
   )
 }

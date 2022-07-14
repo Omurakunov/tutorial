@@ -10,7 +10,6 @@ function savedCourseCards(props) {
         faThumbsUp,
         faChildren
       )
-      console.log(props.courses)
  return(
     <div className='cards-container'>
       

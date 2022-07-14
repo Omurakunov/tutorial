@@ -2,8 +2,6 @@ import Navbar from "../contents/navbar"
 import { useEffect, useState} from 'react'
 import {  faHeart,faChildren, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import SavedCourseCards from "../contents/saved-course-cards";
 import config from '../configs/configs';
@@ -27,13 +25,13 @@ function Saved() {
 
  console.log(savedCourses)
     return(
-      <>
+      <body>
         <Navbar/>
         <div className="page-container">
           <h1>Favorites:</h1>
           <SavedCourseCards courses={savedCourses}/>
         </div>
-        </>
+        </body>
         
     )
 }
