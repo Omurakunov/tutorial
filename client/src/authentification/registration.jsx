@@ -21,6 +21,7 @@ function Registration() {
             })
             .then(res=>{
                 localStorage.setItem('jwt', res.data?.token)
+                localStorage.setItem('email', formValues.email)
                 setIsSucces(true)
             })
             .catch(err=>{

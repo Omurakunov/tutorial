@@ -355,10 +355,31 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px 0 20px;
+  form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    div{
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      input{
+        height: 45px;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 18px;
+        padding: 5px;
+      }
+    }
+  }
   .profile-info{
     text-align: center;
     h2{
       font-size: var(--fs-22);
+      margin: 10px 0 0 0;
     }
     p{
       font-size: var(--fs-16);
@@ -386,16 +407,21 @@ a{
     align-items: center;
     justify-content: center;
     .settings{
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 15px;
       position: absolute;
       right: 0;
-      top: 5px;
+      top: 2px;
       width: 28px;
       height: 28px;
       color: black;
+      transition: 0.150s all ease-in-out;
     }
     .settings:hover{
-      animation: settingsHover 3s infinite linear;
       color: var(--active-color);
+      transform: scale(1.05);
     }
   }
 }
